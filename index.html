@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="UI/UX and Web3 frontend portfolio for Oduyomi Oluwadamilare Emmanuel.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%94%B7%3C/text%3E%3C/svg%3E">
+<title>Oduyomi Oluwadamilare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f5f5f7;
+    --surface-2:#ffffff;
+    --text:#1d1d1f;
+    --text-2:#6e6e73;
+    --accent:#1d3a8a;
+    --accent-strong:#142a63;
+    --on-accent:#ffffff;
+    --border:#d2d2d7;
+    --ring:rgba(29,58,138,.28);
+    --glow:rgba(29,58,138,.14);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#000000;
+      --surface:#1c1c1e;
+      --surface-2:#141416;
+      --text:#f5f5f7;
+      --text-2:#98989d;
+      --accent:#4a6fe0;
+      --accent-strong:#6c8af0;
+      --on-accent:#ffffff;
+      --border:#38383a;
+      --ring:rgba(74,111,224,.35);
+      --glow:rgba(74,111,224,.22);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#000000;
+    --surface:#1c1c1e;
+    --surface-2:#141416;
+    --text:#f5f5f7;
+    --text-2:#98989d;
+    --accent:#4a6fe0;
+    --accent-strong:#6c8af0;
+    --on-accent:#ffffff;
+    --border:#38383a;
+    --ring:rgba(74,111,224,.35);
+    --glow:rgba(74,111,224,.22);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    margin:0;
+    font-family:'Public Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:20px;
+  }
+  h1,h2,h3{font-family:'Manrope',-apple-system,sans-serif;letter-spacing:-0.02em;margin:0;text-wrap:balance;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin-inline:auto;}
+  section{padding-block:clamp(56px,9vw,108px);border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+
+  /* nav */
+  .nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+    margin-inline:-20px;padding-inline:20px;
+  }
+  .nav-in{max-width:1080px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Manrope';font-weight:700;font-size:15px;white-space:nowrap;}
+  .brand .dot{width:12px;height:12px;border-radius:4px;background:var(--accent);flex-shrink:0;}
+  .nav-links{display:flex;align-items:center;gap:22px;}
+  .nav-links a{font-size:14px;font-weight:600;text-decoration:none;color:var(--text-2);transition:color .15s;}
+  .nav-links a:hover{color:var(--text);}
+  @media(max-width:560px){.nav-links a:not(.theme-btn){display:none;}}
+  .theme-btn{
+    width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--surface);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;color:var(--text);
+  }
+  .theme-btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .theme-btn svg{width:17px;height:17px;}
+  .btn svg{width:15px;height:15px;flex-shrink:0;}
+  .contact-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .contact-box .btn-ghost{border-color:rgba(255,255,255,.5);color:var(--on-accent);}
+  .contact-box .btn-ghost:hover{border-color:var(--on-accent);}
+  .theme-btn .moon{display:none;}
+  :root[data-theme="dark"] .theme-btn .sun,
+  :root:not([data-theme="light"]) .theme-btn .sun{}
+  [data-theme="dark"] .theme-btn .sun{display:none;}
+  [data-theme="dark"] .theme-btn .moon{display:block;}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .theme-btn .sun{display:none;}
+    :root:not([data-theme="light"]) .theme-btn .moon{display:block;}
+  }
+
+  /* hero */
+  .hero{padding-top:clamp(48px,8vw,88px);}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:36px;}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .hero h1{font-size:clamp(38px,6vw,64px);font-weight:800;line-height:1.04;}
+  .hero p.lede{font-size:clamp(16px,2vw,18.5px);color:var(--text-2);max-width:52ch;line-height:1.6;margin-top:22px;}
+  .hero-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;
+    padding:13px 22px;border-radius:100px;text-decoration:none;border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;cursor:pointer;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--accent);color:var(--on-accent);}
+  .btn-primary:hover{background:var(--accent-strong);}
+  .btn-ghost{background:transparent;border-color:var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  .hero-photo{position:relative;}
+  .hero-photo .glow{
+    position:absolute;inset:-10%;
+    background:radial-gradient(closest-side, var(--glow), transparent 72%);
+    z-index:0;
+  }
+  .hero-photo .frame{
+    position:relative;z-index:1;border-radius:22px;overflow:hidden;
+    border:1px solid var(--border);background:var(--surface);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.35);
+    aspect-ratio:760/967;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
+
+  /* stat strip */
+  .stats{padding-block:40px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  @media(max-width:700px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat b{display:block;font-size:clamp(24px,3.4vw,32px);font-weight:600;}
+  .stat span{display:block;font-size:12.5px;color:var(--text-2);margin-top:6px;line-height:1.4;}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
+  .kicker{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);margin-bottom:10px;}
+  .about h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;}
+  .about p{color:var(--text-2);font-size:16px;line-height:1.7;margin-top:16px;}
+  .about p:first-of-type{margin-top:0;}
+
+  /* projects */
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:36px;flex-wrap:wrap;}
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:760px){.card-grid{grid-template-columns:1fr;}}
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:18px;
+    padding:26px;display:flex;flex-direction:column;gap:14px;
+  }
+  .card-tag{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .pill{
+    font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:100px;
+    background:var(--bg);border:1px solid var(--border);color:var(--text-2);white-space:nowrap;
+  }
+  .card h3{font-size:19px;font-weight:800;}
+  .card .stat-line{font-size:12.5px;color:var(--accent);font-weight:600;}
+  .card p{font-size:14.5px;line-height:1.65;color:var(--text-2);margin:0;}
+  .card .card-link{margin-top:auto;font-size:13.5px;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+  .card .card-link:hover{text-decoration:underline;}
+
+  /* oss band */
+  .oss{background:var(--surface);margin-inline:-20px;padding-inline:20px;}
+  .oss .wrap{max-width:1080px;}
+  .oss-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+  @media(max-width:760px){.oss-grid{grid-template-columns:1fr;}}
+  .badge-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .badge{
+    background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px 16px;min-width:112px;
+  }
+  .badge b{display:block;font-size:20px;font-weight:600;}
+  .badge span{display:block;font-size:11px;color:var(--text-2);margin-top:4px;}
+
+  /* skills */
+  .tag-cloud{display:flex;flex-wrap:wrap;gap:10px;}
+  .tag{
+    font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:100px;
+    background:var(--surface);border:1px solid var(--border);
+  }
+
+  /* contact */
+  .contact{border-bottom:none;padding-bottom:60px;}
+  .contact-box{
+    background:var(--accent);color:var(--on-accent);border-radius:24px;
+    padding:clamp(36px,6vw,64px);display:flex;flex-direction:column;gap:18px;
+  }
+  .contact-box h2{font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--on-accent);}
+  .contact-box p{font-size:15.5px;opacity:.88;max-width:48ch;line-height:1.6;margin:0;}
+  .contact-box .btn-primary{background:var(--on-accent);color:var(--accent);}
+  .contact-box .btn-primary:hover{background:var(--on-accent);opacity:.9;}
+  .contact-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;opacity:.85;margin-top:4px;}
+
+  footer{padding-block:28px;text-align:center;font-size:12.5px;color:var(--text-2);}
+
+  [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    [data-reveal]{opacity:1;transform:none;transition:none;}
+  }
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="nav-in">
+    <div class="brand"><span class="dot"></span>Oduyomi Oluwadamilare</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="theme-btn" href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener" aria-label="GitHub profile">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.7 15.2A8.5 8.5 0 1 1 8.8 3.3a7 7 0 0 0 11.9 11.9Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div data-reveal>
+        <div class="eyebrow">UI/UX &amp; Web3 Frontend Engineer</div>
+        <h1>From pixel to protocol.</h1>
+        <p class="lede">UI/UX and frontend designer who takes products from Figma to shipped interface. Owned the full UI/UX for a live, 100+ person open-source protocol, then verified every screen matched spec once it hit production.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#work">View the work</a>
+          <a class="btn btn-ghost" href="mailto:damilare.oduyomi@gmail.com">Email me</a>
+        </div>
+      </div>
+      <div class="hero-photo" data-reveal>
+        <div class="glow"></div>
+        <div class="frame">
+          <img src="images/headshot.jpg" alt="Portrait of Oduyomi Oluwadamilare Emmanuel">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Highlights">
+    <div class="stat-grid">
+      <div class="stat" data-reveal><b class="mono">1,400+</b><span>Commits shipped on DukaPay</span></div>
+      <div class="stat" data-reveal><b class="mono">17</b><span>Screens designed &amp; verified for Amana</span></div>
+      <div class="stat" data-reveal><b class="mono">106</b><span>Person team, Amana code reviews</span></div>
+      <div class="stat" data-reveal><b class="mono">16+</b><span>Merged PRs across the Stellar ecosystem</span></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about-grid">
+      <div data-reveal>
+        <div class="kicker">About</div>
+        <h2>Design and engineering, held to the same standard.</h2>
+      </div>
+      <div data-reveal>
+        <p>UI/UX and frontend designer who takes products from Figma to shipped interface. Designed and owned the full UI/UX for a live, 100+ person open-source protocol, then verified every screen matched spec once it hit production.</p>
+        <p>I also run freelance graphic design and creative production work, and code comfortably in HTML, CSS and React when a design needs to become a working prototype, or Rust and Soroban when it needs to become a smart contract.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Selected work</div>
+        <h2>Four projects, one habit: ship what was designed.</h2>
+      </div>
+    </div>
+    <div class="card-grid">
+
+      <article class="card" data-reveal>
+        <div class="card-tag"><span class="pill">Founder · Protocol engineering</span></div>
+        <h3>DukaPay</h3>
+        <div class="stat-line mono">1,400+ commits · 16 forks · 23 authors</div>
+        <p>Open-source, pre-launch agent-banking protocol on Stellar/Soroban, turning local shops into stablecoin cash-in/cash-out points for the unbanked. I wrote the collateralized float settlement system in Rust/Soroban (atomic agent-to-agent rebalancing, batched net settlement, oracle-manipulation and MEV protection), and directed security hardening across the stack: Semgrep, CodeQL, Trivy and Gitleaks in CI, RLS/RBAC, JWT and PII rotation, CSRF protection. Merged 21 PRs and closed 430 issues in a single month, across 438 files and 53K+ lines changed.</p>
+        <a class="card-link" href="https://www.figma.com/design/jOQAjUaZpj7uGVwHXeOxl1/DukaPay?node-id=0-1" target="_blank" rel="noopener">View Figma →</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-tag"><span class="pill">UI/UX &amp; Frontend Maintainer · Feb–Aug 2026</span></div>
+        <h3>Amana</h3>
+        <div class="stat-line mono">17 screens · 106-person team</div>
+        <p>Stellar-based agricultural escrow protocol. I designed 17 screens across trade, asset-securing, withdrawal and reputation flows in Figma, owning the UI/UX single-handedly. Reviewed contributor PRs and verified CI checks across a 106-person open-source team, then confirmed the frontend implementation matched spec across all 17 screens. Built with Next.js and TypeScript, with Freighter wallet integration.</p>
+        <a class="card-link" href="https://www.figma.com/design/r4l1ciQ2AnyrOxVW9t5oCm/Amana?node-id=0-1" target="_blank" rel="noopener">View Figma →</a>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-tag"><span class="pill">Founder · Open-source tooling</span></div>
+        <h3>RepoFlow</h3>
+        <div class="stat-line mono">3-repo architecture</div>
+        <p>My own open-source platform for GitHub repo management and OSS funding on Stellar/Soroban: a Rust/Axum backend, a Next.js frontend and a Soroban smart contract. I designed and built its dark-themed SaaS landing page in vanilla HTML, CSS and JavaScript.</p>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-tag"><span class="pill">Freelance · Sep 2021–Aug 2025</span></div>
+        <h3>ExcelD'sign Labs</h3>
+        <div class="stat-line mono">+50% social engagement</div>
+        <p>Graphic design, branding, print and live production under my own freelance studio. Grew client social engagement by 50%, and produced weekly church livestreams averaging 50 viewers over two and a half years, alongside live production for weddings, book launches and educational events.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="oss">
+    <div class="wrap">
+      <div class="oss-grid">
+        <div data-reveal>
+          <div class="kicker">Also shipping across the ecosystem</div>
+          <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;">Stellar open-source contributor, Feb 2026–present</h2>
+          <p style="color:var(--text-2);font-size:15px;line-height:1.7;margin-top:14px;max-width:56ch;">16+ merged PRs across DeFi lending, remittance and payment protocols (Agrocylo-Global, eSuStellar, Navin-contracts), with a focus on security: dependency scanning, CSP hardening, secrets rotation and CI hardening across 70+ repos.</p>
+        </div>
+        <div class="badge-row" data-reveal>
+          <div class="badge"><b class="mono">70+</b><span>Repos secured</span></div>
+          <div class="badge"><b class="mono">77</b><span>Public repos</span></div>
+          <div class="badge"><b class="mono">×2</b><span>Pull Shark</span></div>
+          <div class="badge"><b class="mono">1</b><span>Quickdraw</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="kicker">Skills</div>
+    <h2 style="font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-bottom:24px;">Tools I reach for daily</h2>
+    <div class="tag-cloud" data-reveal>
+      <span class="tag">UI/UX Design</span>
+      <span class="tag">Figma</span>
+      <span class="tag">Wireframing &amp; User Flows</span>
+      <span class="tag">Adobe Photoshop</span>
+      <span class="tag">Adobe Illustrator</span>
+      <span class="tag">HTML5 &amp; CSS3</span>
+      <span class="tag">Tailwind CSS</span>
+      <span class="tag">React/Next.js</span>
+      <span class="tag">Design Systems</span>
+      <span class="tag">Design-to-Development QA</span>
+      <span class="tag">Agile/Kanban Issue Triage</span>
+      <span class="tag">Client Relationship Management</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-box" data-reveal>
+      <h2>Let's build something worth shipping.</h2>
+      <p>Open to UI/UX and frontend roles, and to Web3/Soroban engineering work. Based in Lagos, Nigeria, working with teams anywhere.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:damilare.oduyomi@gmail.com">Email damilare.oduyomi@gmail.com</a>
+        <a class="btn btn-ghost" href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Oduyomi Oluwadamilare Emmanuel</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('themeToggle');
+  try{
+    var saved = localStorage.getItem('theme');
+    if(saved === 'light' || saved === 'dark'){ root.setAttribute('data-theme', saved); }
+  }catch(e){}
+  btn.addEventListener('click', function(){
+    var current = root.getAttribute('data-theme');
+    var mql = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = current ? current === 'dark' : mql;
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('theme', next); }catch(e){}
+  });
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>
