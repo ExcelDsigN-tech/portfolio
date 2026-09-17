@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import { profile } from "@/lib/data";
+import { GithubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
 
 export default function Contact() {
   return (
@@ -27,17 +28,28 @@ export default function Contact() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 font-mono text-sm font-semibold text-base-950 transition-all hover:shadow-glow sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-intel-primary px-6 py-3 font-mono text-sm font-semibold text-white transition-colors hover:bg-intel-primary/85 sm:w-auto"
             >
-              email me →
+              <MailIcon className="h-4 w-4" />
+              email me
+            </a>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-intel-primary hover:text-intel-primary"
+            >
+              <LinkedInIcon className="h-5 w-5" />
             </a>
             <a
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 px-6 py-3 font-mono text-sm text-slate-200 transition-colors hover:border-accent/50 hover:text-accent sm:w-auto"
+              aria-label="GitHub"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-intel-primary hover:text-intel-primary"
             >
-              github ↗
+              <GithubIcon className="h-5 w-5" />
             </a>
           </div>
 

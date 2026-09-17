@@ -1,9 +1,22 @@
 import type { Metadata, Viewport } from "next";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-/* eslint-disable @next/next/no-page-custom-font */
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 const description =
   "Oluwadamilare Oduyomi (ExcelDsigN-tech) — Soroban / Stellar blockchain developer building escrow, payments, and reputation systems on the Stellar network. 16+ merged PRs into the Stellar ecosystem, flagship TrustLink protocol.";
@@ -51,17 +64,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      {/* eslint-disable-next-line @next/next/no-page-custom-font -- App Router: <head> in layout is global */}
-{/* eslint-disable-next-line @next/next/no-page-custom-font -- App Router: <head> in layout is global */}
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`scroll-smooth ${manrope.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="min-h-screen bg-base-950 font-sans text-slate-200 antialiased">
         <Nav />
         <main>{children}</main>

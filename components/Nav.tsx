@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { GithubIcon, LinkedInIcon } from "@/components/icons";
+import { profile } from "@/lib/data";
 
 const links = [
   { href: "#about", label: "about" },
@@ -22,9 +25,17 @@ export default function Nav() {
       >
         <a
           href="#top"
-          className="font-mono text-sm font-semibold tracking-tight text-white"
+          className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight text-white"
         >
-          <span className="text-accent">~</span>exceldsign-tech
+          <Image
+            src="/brand/logo.svg"
+            alt="ExcelDsigN-tech logo"
+            width={594}
+            height={192}
+            className="h-7 w-auto"
+            priority
+          />
+          exceldsign-tech
         </a>
 
         <ul className="hidden items-center gap-7 md:flex">
@@ -41,14 +52,26 @@ export default function Nav() {
           ))}
         </ul>
 
-        <a
-          href="https://github.com/ExcelDsigN-tech"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-medium text-accent transition-all hover:bg-accent/20 hover:shadow-glow-sm md:inline-flex"
-        >
-          github ↗
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            <LinkedInIcon className="h-4 w-4" />
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-medium text-accent transition-all hover:bg-accent/20 hover:shadow-glow-sm"
+          >
+            <GithubIcon className="h-3.5 w-3.5" />
+            github ↗
+          </a>
+        </div>
 
         <button
           type="button"
@@ -84,14 +107,24 @@ export default function Nav() {
                 </a>
               </li>
             ))}
-            <li className="pt-2">
+            <li className="flex items-center gap-3 pt-2">
               <a
-                href="https://github.com/ExcelDsigN-tech"
+                href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-medium text-accent"
+                className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-medium text-accent"
               >
+                <GithubIcon className="h-3.5 w-3.5" />
                 github ↗
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400"
+              >
+                <LinkedInIcon className="h-4 w-4" />
               </a>
             </li>
           </ul>

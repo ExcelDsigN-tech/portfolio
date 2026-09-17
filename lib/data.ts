@@ -23,6 +23,7 @@ export const profile = {
     "I build programmable trust — escrow, payments, and reputation systems on the Stellar network, engineered for the markets that need them most.",
   email: "oluwadamilareoduyomi@gmail.com",
   github: "https://github.com/ExcelDsigN-tech",
+  linkedin: "https://www.linkedin.com/in/oluwadamilareoduyomi/",
   location: "Africa / Remote",
   mission:
     "Most cross-border and local economies run on trust gaps — pay first, hope later. I build the on-chain rails that replace that gap: milestone escrow, auditable agent-banking, remittances, and savings circles. My work targets the real world first: African remittances, escrow for agriculture, and low-cost payments.",

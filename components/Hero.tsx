@@ -12,15 +12,16 @@ export default function Hero() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-accent/20 blur-[140px]"
+        className="animate-pulseSoft pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-intel-primary/25 blur-[140px]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-32 h-72 w-72 rounded-full bg-accent-cyan/10 blur-[120px]"
+        className="animate-pulseSoft pointer-events-none absolute -right-24 top-32 h-72 w-72 rounded-full bg-accent/15 blur-[120px]"
+        style={{ animationDelay: "1.5s" }}
       />
 
-      <div className="container-x relative pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <p className="animate-fadeUp font-mono text-sm text-accent">
+      <div className="container-x relative flex flex-col items-center pt-32 pb-20 text-center sm:pt-40 sm:pb-28">
+        <p className="animate-fadeUp font-mono text-sm text-intel-primary">
           <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 align-middle" />
           available for employment &amp; collaborations
         </p>
@@ -29,27 +30,24 @@ export default function Hero() {
           className="animate-fadeUp mt-6 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl"
           style={{ animationDelay: "80ms" }}
         >
-          I build{" "}
-          <span className="bg-gradient-to-r from-accent to-accent-cyan bg-clip-text text-transparent">
-            programmable trust
-          </span>{" "}
+          I build <span className="text-intel-primary">programmable trust</span>{" "}
           on the Stellar network.
         </h1>
 
         <p
-          className="animate-fadeUp mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg"
+          className="animate-fadeUp mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg"
           style={{ animationDelay: "160ms" }}
         >
           {profile.tagline}
         </p>
 
         <div
-          className="animate-fadeUp mt-8 flex flex-wrap items-center gap-4"
+          className="animate-fadeUp mt-8 flex flex-wrap items-center justify-center gap-4"
           style={{ animationDelay: "240ms" }}
         >
           <a
             href="#trustlink"
-            className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-mono text-sm font-semibold text-base-950 transition-all hover:shadow-glow"
+            className="inline-flex min-h-[51px] min-w-[191px] items-center justify-center gap-2 rounded-full bg-intel-primary px-5 py-3 font-mono text-sm font-medium text-white transition-colors hover:bg-intel-primary/85"
           >
             view flagship →
           </a>
@@ -57,19 +55,19 @@ export default function Hero() {
             href="https://github.com/ExcelDsigN-tech"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3 font-mono text-sm text-slate-200 transition-colors hover:border-accent/50 hover:text-accent"
+            className="inline-flex min-h-[51px] min-w-[191px] items-center justify-center gap-2 rounded-full border border-white px-5 py-3 font-mono text-sm text-white transition-colors hover:border-intel-primary hover:text-intel-primary"
           >
             github.com/ExcelDsigN-tech ↗
           </a>
         </div>
 
         <div
-          className="animate-fadeUp mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.06] sm:grid-cols-4"
+          className="animate-fadeUp mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-intel-tertiary bg-intel-tertiary sm:grid-cols-4"
           style={{ animationDelay: "320ms" }}
         >
           {profile.stats.map((stat) => (
-            <div key={stat.label} className="bg-base-900/90 p-5">
-              <p className="font-mono text-2xl font-bold text-accent">
+            <div key={stat.label} className="bg-intel-surface p-4">
+              <p className="font-mono text-2xl font-bold text-intel-primary">
                 {stat.value}
               </p>
               <p className="mt-1 text-xs leading-snug text-slate-400">
@@ -86,7 +84,7 @@ export default function Hero() {
           <span className="text-emerald-400">❯</span>
           <span>
             cargo test --manifest-path contracts/trustlink/Cargo.toml
-            <span className="ml-1 inline-block h-3.5 w-2 animate-blink bg-accent align-middle" />
+            <span className="ml-1 inline-block h-3.5 w-2 animate-blink bg-intel-primary align-middle" />
           </span>
         </div>
       </div>

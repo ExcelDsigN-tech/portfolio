@@ -22,6 +22,18 @@ const config: Config = {
           600: "#6d5cff",
           cyan: "#5ce1e6",
         },
+        intel: {
+          primary: "#0953de",
+          surface: "#121212",
+          tertiary: "#374151",
+        },
+      },
+      spacing: {
+        xs: "8px",
+        sm: "18px",
+        md: "32px",
+        lg: "50px",
+        xl: "80px",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
