@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { featuredProjects, moreProjects } from "@/lib/data";
 
@@ -8,55 +9,73 @@ function ProjectCard({
   stack,
   repo,
   topics,
+  image,
 }: (typeof featuredProjects)[number]) {
   return (
     <a
       href={repo}
       target="_blank"
       rel="noopener noreferrer"
-      className="card card-hover group flex h-full flex-col p-6"
+      className="card card-hover group flex h-full flex-col overflow-hidden"
     >
-      <div className="flex items-center justify-between">
-        <span className="font-mono text-sm font-semibold text-white transition-colors group-hover:text-accent">
-          {name}
-        </span>
-        <svg
-          className="h-4 w-4 text-slate-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M7 17 17 7M7 7h10v10" />
-        </svg>
-      </div>
-      <p className="mt-1 font-mono text-xs uppercase tracking-wider text-accent/80">
-        {tagline}
-      </p>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">
-        {description}
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {stack.map((s) => (
-          <span key={s} className="chip">
-            {s}
+      {image && (
+        <div className="relative aspect-video w-full overflow-hidden border-b border-white/10">
+          <Image
+            src={image}
+            alt={`${name} interface`}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="glass absolute inset-x-0 bottom-0 border-x-0 border-b-0 px-4 py-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-accent/90">
+              {tagline}
+            </span>
+          </div>
+        </div>
+      )}
+
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-center justify-between">
+          <span className="font-mono text-sm font-semibold text-white transition-colors group-hover:text-accent">
+            {name}
           </span>
-        ))}
-      </div>
-      {topics && topics.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {topics.map((t) => (
-            <span
-              key={t}
-              className="font-mono text-[10px] text-slate-500"
-            >
-              #{t}
+          <svg
+            className="h-4 w-4 text-slate-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M7 17 17 7M7 7h10v10" />
+          </svg>
+        </div>
+        {!image && (
+          <p className="mt-1 font-mono text-xs uppercase tracking-wider text-accent/80">
+            {tagline}
+          </p>
+        )}
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">
+          {description}
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {stack.map((s) => (
+            <span key={s} className="chip">
+              {s}
             </span>
           ))}
         </div>
-      )}
+        {topics && topics.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {topics.map((t) => (
+              <span key={t} className="font-mono text-[10px] text-slate-400">
+                #{t}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
     </a>
   );
 }
@@ -88,7 +107,7 @@ export default function Projects() {
           <details className="card mt-8 group">
             <summary className="flex cursor-pointer items-center justify-between p-6 font-mono text-sm text-slate-300 transition-colors hover:text-accent">
               <span>+ more experiments &amp; tooling ({moreProjects.length})</span>
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-slate-400">
                 click to expand
               </span>
             </summary>

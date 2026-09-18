@@ -43,7 +43,7 @@ export default function Flagship() {
                   <h3 className="font-mono text-sm font-semibold uppercase tracking-wider text-accent">
                     {item.layer}
                   </h3>
-                  <span className="font-mono text-xs text-slate-500">
+                  <span className="font-mono text-xs text-slate-400">
                     {item.role}
                   </span>
                 </div>

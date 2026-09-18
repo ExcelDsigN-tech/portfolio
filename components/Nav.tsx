@@ -18,24 +18,26 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-base-950/80 backdrop-blur-md">
+    <header className="glass fixed inset-x-0 top-0 z-50 border-x-0 border-t-0 border-white/10">
       <nav
         className="container-x flex h-16 items-center justify-between"
         aria-label="Primary"
       >
         <a
           href="#top"
-          className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight text-white"
+          className="flex items-center gap-2.5 font-sans text-sm font-bold tracking-tight text-white"
         >
           <Image
-            src="/brand/logo.svg"
-            alt="ExcelDsigN-tech logo"
-            width={594}
-            height={192}
+            src="/brand/logo-white.svg"
+            alt="Damilare Oduyomi logo"
+            width={300}
+            height={220}
             className="h-7 w-auto"
             priority
           />
-          exceldsign-tech
+          <span>
+            DAMILARE <span className="text-slate-400">OD.</span>
+          </span>
         </a>
 
         <ul className="hidden items-center gap-7 md:flex">
@@ -66,7 +68,7 @@ export default function Nav() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-medium text-accent transition-all hover:bg-accent/20 hover:shadow-glow-sm"
+            className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2 font-mono text-xs font-medium text-white transition-colors hover:bg-primary-400"
           >
             <GithubIcon className="h-3.5 w-3.5" />
             github ↗

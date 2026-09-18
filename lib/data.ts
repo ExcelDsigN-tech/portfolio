@@ -7,6 +7,7 @@ export interface Project {
   stars?: string;
   featured?: boolean;
   topics?: string[];
+  image?: string;
 }
 
 export interface Contribution {
@@ -131,16 +132,6 @@ export const flagship = {
 
 export const featuredProjects: Project[] = [
   {
-    name: "TrustLink",
-    tagline: "B2B Escrow & Reputation",
-    description:
-      "Decentralized escrow + reputation protocol for cross-border service agreements. Full monorepo: Soroban contracts, Rust indexer, Next.js dashboard, TypeScript SDK.",
-    stack: ["Rust", "Soroban", "Axum", "Next.js", "PostgreSQL"],
-    repo: "https://github.com/ExcelDsigN-tech/TRUSTLINK",
-    topics: ["blockchain", "escrow", "smart-contracts", "soroban", "stellar"],
-    featured: true,
-  },
-  {
     name: "dukapay",
     tagline: "Agent-Banking for Stellar",
     description:
@@ -148,6 +139,28 @@ export const featuredProjects: Project[] = [
     stack: ["TypeScript", "Soroban", "Stellar", "Stablecoin"],
     repo: "https://github.com/ExcelDsigN-tech/dukapay",
     topics: ["agent-banking", "fintech", "stablecoin", "stellar", "soroban"],
+    image: "/projects/dukapay.png",
+    featured: true,
+  },
+  {
+    name: "Amana",
+    tagline: "Agricultural Trade Escrow",
+    description:
+      "Decentralized escrow protocol securing inter-regional agricultural trade — Soroban smart contracts act as a neutral third party between farmers and buyers.",
+    stack: ["TypeScript", "Soroban", "Stellar"],
+    repo: "https://github.com/ExcelDsigN-tech/Amana",
+    topics: ["escrow", "agriculture", "stellar", "soroban"],
+    image: "/projects/amana.png",
+    featured: true,
+  },
+  {
+    name: "TrustLink",
+    tagline: "B2B Escrow & Reputation",
+    description:
+      "Decentralized escrow + reputation protocol for cross-border service agreements. Full monorepo: Soroban contracts, Rust indexer, Next.js dashboard, TypeScript SDK.",
+    stack: ["Rust", "Soroban", "Axum", "Next.js", "PostgreSQL"],
+    repo: "https://github.com/ExcelDsigN-tech/TRUSTLINK",
+    topics: ["blockchain", "escrow", "smart-contracts", "soroban", "stellar"],
   },
   {
     name: "SwiftRemit",

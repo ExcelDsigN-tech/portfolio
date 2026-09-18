@@ -9,43 +9,41 @@ const config: Config = {
     extend: {
       colors: {
         base: {
-          950: "#050507",
-          900: "#0a0a10",
-          850: "#0e0e16",
-          800: "#12121c",
-          700: "#1a1a28",
+          950: "#0f0f0f",
+          900: "#141414",
+          850: "#181818",
+          800: "#1d1d1d",
+          700: "#242424",
+        },
+        primary: {
+          DEFAULT: "#312E81",
+          400: "#4338CA",
         },
         accent: {
-          DEFAULT: "#8b7cff",
-          400: "#a99dff",
-          500: "#8b7cff",
-          600: "#6d5cff",
-          cyan: "#5ce1e6",
+          DEFAULT: "#818CF8",
+          400: "#A5B4FC",
+          500: "#818CF8",
+          600: "#6366F1",
         },
-        intel: {
-          primary: "#0953de",
-          surface: "#121212",
-          tertiary: "#374151",
+        edge: {
+          DEFAULT: "#374151",
+          subtle: "#494949",
         },
       },
       spacing: {
-        xs: "8px",
-        sm: "18px",
-        md: "32px",
-        lg: "50px",
-        xl: "80px",
+        xs: "12px",
+        sm: "24px",
+        md: "48px",
+        lg: "80px",
+        xl: "128px",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
-      boxShadow: {
-        glow: "0 0 40px -8px rgba(139, 124, 255, 0.45)",
-        "glow-sm": "0 0 20px -6px rgba(139, 124, 255, 0.4)",
-      },
       backgroundImage: {
         "grid-faint":
-          "linear-gradient(to right, rgba(139,124,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(139,124,255,0.05) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(79,70,229,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(79,70,229,0.07) 1px, transparent 1px)",
       },
       keyframes: {
         fadeUp: {

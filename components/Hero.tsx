@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { profile } from "@/lib/data";
 
 export default function Hero() {
@@ -12,7 +13,7 @@ export default function Hero() {
       />
       <div
         aria-hidden="true"
-        className="animate-pulseSoft pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-intel-primary/25 blur-[140px]"
+        className="animate-pulseSoft pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-accent/20 blur-[140px]"
       />
       <div
         aria-hidden="true"
@@ -21,17 +22,30 @@ export default function Hero() {
       />
 
       <div className="container-x relative flex flex-col items-center pt-32 pb-20 text-center sm:pt-40 sm:pb-28">
-        <p className="animate-fadeUp font-mono text-sm text-intel-primary">
-          <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 align-middle" />
-          available for employment &amp; collaborations
-        </p>
+        <div
+          className="glass animate-fadeUp flex items-center gap-3 rounded-full py-1.5 pl-1.5 pr-4"
+        >
+          <Image
+            src="/images/headshot.png"
+            alt={profile.name}
+            width={64}
+            height={64}
+            className="h-8 w-8 rounded-full object-cover"
+            priority
+          />
+          <p className="font-mono text-xs text-slate-300 sm:text-sm">
+            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-accent align-middle" />
+            available for employment &amp; collaborations
+          </p>
+        </div>
 
         <h1
-          className="animate-fadeUp mt-6 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl"
+          className="animate-fadeUp mt-8 max-w-4xl text-[2.75rem] font-extrabold leading-[1.02] tracking-[-0.03em] text-white sm:text-7xl sm:tracking-[-0.04em] lg:text-[96px] lg:leading-[0.96] lg:tracking-[-0.05em]"
           style={{ animationDelay: "80ms" }}
         >
-          I build <span className="text-intel-primary">programmable trust</span>{" "}
-          on the Stellar network.
+          Programmable trust,
+          <br />
+          engineered on <span className="text-accent">Stellar</span>.
         </h1>
 
         <p
@@ -47,7 +61,7 @@ export default function Hero() {
         >
           <a
             href="#trustlink"
-            className="inline-flex min-h-[51px] min-w-[191px] items-center justify-center gap-2 rounded-full bg-intel-primary px-5 py-3 font-mono text-sm font-medium text-white transition-colors hover:bg-intel-primary/85"
+            className="inline-flex min-h-[54px] min-w-[191px] items-center justify-center gap-2 rounded-sm bg-primary px-5 py-3 font-mono text-sm font-medium text-white transition-colors hover:bg-primary-400"
           >
             view flagship →
           </a>
@@ -55,19 +69,19 @@ export default function Hero() {
             href="https://github.com/ExcelDsigN-tech"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[51px] min-w-[191px] items-center justify-center gap-2 rounded-full border border-white px-5 py-3 font-mono text-sm text-white transition-colors hover:border-intel-primary hover:text-intel-primary"
+            className="inline-flex min-h-[54px] min-w-[191px] items-center justify-center gap-2 rounded-sm border border-white/20 px-5 py-3 font-mono text-sm text-white transition-colors hover:border-accent hover:text-accent"
           >
             github.com/ExcelDsigN-tech ↗
           </a>
         </div>
 
         <div
-          className="animate-fadeUp mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-intel-tertiary bg-intel-tertiary sm:grid-cols-4"
+          className="animate-fadeUp mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-edge bg-edge sm:grid-cols-4"
           style={{ animationDelay: "320ms" }}
         >
           {profile.stats.map((stat) => (
-            <div key={stat.label} className="bg-intel-surface p-4">
-              <p className="font-mono text-2xl font-bold text-intel-primary">
+            <div key={stat.label} className="bg-base-950 p-4">
+              <p className="font-mono text-2xl font-bold text-accent">
                 {stat.value}
               </p>
               <p className="mt-1 text-xs leading-snug text-slate-400">
@@ -78,13 +92,13 @@ export default function Hero() {
         </div>
 
         <div
-          className="animate-fadeUp mt-8 flex items-center gap-2 font-mono text-xs text-slate-500"
+          className="animate-fadeUp mt-8 flex items-center gap-2 font-mono text-xs text-slate-400"
           style={{ animationDelay: "400ms" }}
         >
-          <span className="text-emerald-400">❯</span>
+          <span className="text-accent">❯</span>
           <span>
             cargo test --manifest-path contracts/trustlink/Cargo.toml
-            <span className="ml-1 inline-block h-3.5 w-2 animate-blink bg-intel-primary align-middle" />
+            <span className="ml-1 inline-block h-3.5 w-2 animate-blink bg-accent align-middle" />
           </span>
         </div>
       </div>

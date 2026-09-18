@@ -12,14 +12,14 @@ html {
 }
 
 body {
-  background-color: #050507;
-  color: #e7e7ef;
+  background-color: #0f0f0f;
+  color: #9d9d9d;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(139, 124, 255, 0.35);
+  background: rgba(79, 70, 229, 0.35);
   color: #ffffff;
 }
 
@@ -28,14 +28,14 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a10;
+  background: #141414;
 }
 ::-webkit-scrollbar-thumb {
-  background: #23233a;
+  background: #2a2a2a;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #34345a;
+  background: #3a3a3a;
 }
 
 @layer components {
@@ -47,12 +47,18 @@ body {
     @apply font-mono text-xs uppercase tracking-[0.25em] text-accent;
   }
 
+  /* Flat bordered surface — no shadow, no blur (design system default) */
   .card {
-    @apply rounded-2xl border border-white/[0.07] bg-base-800/60 backdrop-blur-sm;
+    @apply rounded-lg border border-white/10 bg-base-800;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:border-accent/40 hover:shadow-glow-sm hover:-translate-y-0.5;
+    @apply transition-colors duration-300 hover:border-accent/50;
+  }
+
+  /* Scoped frosted-glass treatment — nav chrome + image overlays only */
+  .glass {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
   }
 
   .chip {

@@ -28,7 +28,7 @@ export default function Contact() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-intel-primary px-6 py-3 font-mono text-sm font-semibold text-white transition-colors hover:bg-intel-primary/85 sm:w-auto"
+              className="inline-flex min-h-[54px] w-full items-center justify-center gap-2 rounded-sm bg-primary px-6 py-3 font-mono text-sm font-semibold text-white transition-colors hover:bg-primary-400 sm:w-auto"
             >
               <MailIcon className="h-4 w-4" />
               email me
@@ -38,7 +38,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-intel-primary hover:text-intel-primary"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-accent/50 hover:text-accent"
             >
               <LinkedInIcon className="h-5 w-5" />
             </a>
@@ -47,13 +47,13 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-intel-primary hover:text-intel-primary"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-accent/50 hover:text-accent"
             >
               <GithubIcon className="h-5 w-5" />
             </a>
           </div>
 
-          <p className="mt-8 font-mono text-xs text-slate-500">
+          <p className="mt-8 font-mono text-xs text-slate-400">
             {profile.email}
           </p>
         </Reveal>

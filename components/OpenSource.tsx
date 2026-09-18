@@ -34,7 +34,7 @@ export default function OpenSource() {
                 <p className="flex-1 text-sm leading-relaxed text-slate-300">
                   {c.detail}
                 </p>
-                <span className="shrink-0 font-mono text-xs text-slate-500">
+                <span className="shrink-0 font-mono text-xs text-slate-400">
                   → {c.repo}
                 </span>
               </div>

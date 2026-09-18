@@ -35,4 +35,5 @@ next-env.d.ts
 # local agent / tooling
 .claude
 .playwright
+.playwright-mcp
 .serena

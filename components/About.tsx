@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { profile } from "@/lib/data";
 
@@ -35,34 +36,43 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="card card-hover p-6">
+            <div className="card card-hover overflow-hidden">
+              <Image
+                src="/images/headshot.png"
+                alt={profile.name}
+                width={864}
+                height={1100}
+                className="h-56 w-full object-cover object-top grayscale transition-all duration-500 hover:grayscale-0"
+              />
+              <div className="p-6">
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
                 identity
               </p>
               <dl className="mt-5 space-y-4 text-sm">
                 <div className="flex items-start justify-between gap-4">
-                  <dt className="shrink-0 font-mono text-slate-500">name</dt>
+                  <dt className="shrink-0 font-mono text-slate-400">name</dt>
                   <dd className="text-right text-slate-200">
                     {profile.name}
                   </dd>
                 </div>
                 <div className="flex items-start justify-between gap-4">
-                  <dt className="shrink-0 font-mono text-slate-500">role</dt>
+                  <dt className="shrink-0 font-mono text-slate-400">role</dt>
                   <dd className="text-right text-slate-200">{profile.title}</dd>
                 </div>
                 <div className="flex items-start justify-between gap-4">
-                  <dt className="shrink-0 font-mono text-slate-500">base</dt>
+                  <dt className="shrink-0 font-mono text-slate-400">base</dt>
                   <dd className="text-right text-slate-200">
                     {profile.location}
                   </dd>
                 </div>
                 <div className="flex items-start justify-between gap-4">
-                  <dt className="shrink-0 font-mono text-slate-500">ethos</dt>
+                  <dt className="shrink-0 font-mono text-slate-400">ethos</dt>
                   <dd className="text-right text-slate-200">
                     auditable · open · for real markets
                   </dd>
                 </div>
               </dl>
+              </div>
             </div>
           </Reveal>
         </div>
