@@ -3,411 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="UI/UX and Web3 frontend portfolio for Oduyomi Oluwadamilare Emmanuel.">
-<meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%94%B7%3C/text%3E%3C/svg%3E">
-<title>Oduyomi Oluwadamilare</title>
+<meta name="description" content="Damilare Oduyomi — UI/UX and frontend designer who takes products from Figma to shipped interface. Also shipping across the Stellar/Soroban ecosystem.">
+<meta name="theme-color" content="#0f0f0f">
+<link rel="icon" href="images/brand/logo-white.svg">
+<title>Damilare Oduyomi — UI/UX &amp; Frontend Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#ffffff;
-    --surface:#f5f5f7;
-    --surface-2:#ffffff;
-    --text:#1d1d1f;
-    --text-2:#6e6e73;
-    --accent:#1d3a8a;
-    --accent-strong:#142a63;
-    --on-accent:#ffffff;
-    --border:#d2d2d7;
-    --ring:rgba(29,58,138,.28);
-    --glow:rgba(29,58,138,.14);
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#000000;
-      --surface:#1c1c1e;
-      --surface-2:#141416;
-      --text:#f5f5f7;
-      --text-2:#98989d;
-      --accent:#4a6fe0;
-      --accent-strong:#6c8af0;
-      --on-accent:#ffffff;
-      --border:#38383a;
-      --ring:rgba(74,111,224,.35);
-      --glow:rgba(74,111,224,.22);
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#000000;
-    --surface:#1c1c1e;
-    --surface-2:#141416;
-    --text:#f5f5f7;
-    --text-2:#98989d;
-    --accent:#4a6fe0;
-    --accent-strong:#6c8af0;
-    --on-accent:#ffffff;
-    --border:#38383a;
-    --ring:rgba(74,111,224,.35);
-    --glow:rgba(74,111,224,.22);
-  }
-
-  *{box-sizing:border-box;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    margin:0;
-    font-family:'Public Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    -webkit-font-smoothing:antialiased;
-    padding-inline:20px;
-  }
-  h1,h2,h3{font-family:'Manrope',-apple-system,sans-serif;letter-spacing:-0.02em;margin:0;text-wrap:balance;}
-  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:1080px;margin-inline:auto;}
-  section{padding-block:clamp(56px,9vw,108px);border-bottom:1px solid var(--border);}
-  section:last-of-type{border-bottom:none;}
-
-  /* nav */
-  .nav{
-    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
-    background:color-mix(in srgb, var(--bg) 78%, transparent);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--border);
-    margin-inline:-20px;padding-inline:20px;
-  }
-  .nav-in{max-width:1080px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Manrope';font-weight:700;font-size:15px;white-space:nowrap;}
-  .brand .dot{width:12px;height:12px;border-radius:4px;background:var(--accent);flex-shrink:0;}
-  .nav-links{display:flex;align-items:center;gap:22px;}
-  .nav-links a{font-size:14px;font-weight:600;text-decoration:none;color:var(--text-2);transition:color .15s;}
-  .nav-links a:hover{color:var(--text);}
-  @media(max-width:560px){.nav-links a:not(.theme-btn){display:none;}}
-  .theme-btn{
-    width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--surface);
-    display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;color:var(--text);
-  }
-  .theme-btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
-  .theme-btn svg{width:17px;height:17px;}
-  .btn svg{width:15px;height:15px;flex-shrink:0;}
-  .contact-actions{display:flex;gap:12px;flex-wrap:wrap;}
-  .contact-box .btn-ghost{border-color:rgba(255,255,255,.5);color:var(--on-accent);}
-  .contact-box .btn-ghost:hover{border-color:var(--on-accent);}
-  .theme-btn .moon{display:none;}
-  :root[data-theme="dark"] .theme-btn .sun,
-  :root:not([data-theme="light"]) .theme-btn .sun{}
-  [data-theme="dark"] .theme-btn .sun{display:none;}
-  [data-theme="dark"] .theme-btn .moon{display:block;}
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]) .theme-btn .sun{display:none;}
-    :root:not([data-theme="light"]) .theme-btn .moon{display:block;}
-  }
-
-  /* hero */
-  .hero{padding-top:clamp(48px,8vw,88px);}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
-  @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:36px;}}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
-    color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;
-  }
-  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);}
-  .hero h1{font-size:clamp(38px,6vw,64px);font-weight:800;line-height:1.04;}
-  .hero p.lede{font-size:clamp(16px,2vw,18.5px);color:var(--text-2);max-width:52ch;line-height:1.6;margin-top:22px;}
-  .hero-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;
-    padding:13px 22px;border-radius:100px;text-decoration:none;border:1px solid transparent;
-    transition:transform .15s ease, background .15s ease, border-color .15s ease;cursor:pointer;
-  }
-  .btn:active{transform:scale(.97);}
-  .btn-primary{background:var(--accent);color:var(--on-accent);}
-  .btn-primary:hover{background:var(--accent-strong);}
-  .btn-ghost{background:transparent;border-color:var(--border);color:var(--text);}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
-
-  .hero-photo{position:relative;}
-  .hero-photo .glow{
-    position:absolute;inset:-10%;
-    background:radial-gradient(closest-side, var(--glow), transparent 72%);
-    z-index:0;
-  }
-  .hero-photo .frame{
-    position:relative;z-index:1;border-radius:22px;overflow:hidden;
-    border:1px solid var(--border);background:var(--surface);
-    box-shadow:0 30px 60px -30px rgba(0,0,0,.35);
-    aspect-ratio:760/967;
-  }
-  .hero-photo img{width:100%;height:100%;object-fit:cover;}
-
-  /* stat strip */
-  .stats{padding-block:40px;}
-  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
-  @media(max-width:700px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
-  .stat b{display:block;font-size:clamp(24px,3.4vw,32px);font-weight:600;}
-  .stat span{display:block;font-size:12.5px;color:var(--text-2);margin-top:6px;line-height:1.4;}
-
-  /* about */
-  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;}
-  @media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
-  .kicker{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);margin-bottom:10px;}
-  .about h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;}
-  .about p{color:var(--text-2);font-size:16px;line-height:1.7;margin-top:16px;}
-  .about p:first-of-type{margin-top:0;}
-
-  /* projects */
-  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:36px;flex-wrap:wrap;}
-  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  @media(max-width:760px){.card-grid{grid-template-columns:1fr;}}
-  .card{
-    background:var(--surface);border:1px solid var(--border);border-radius:18px;
-    padding:26px;display:flex;flex-direction:column;gap:14px;
-  }
-  .card-tag{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
-  .pill{
-    font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:100px;
-    background:var(--bg);border:1px solid var(--border);color:var(--text-2);white-space:nowrap;
-  }
-  .card h3{font-size:19px;font-weight:800;}
-  .card .stat-line{font-size:12.5px;color:var(--accent);font-weight:600;}
-  .card p{font-size:14.5px;line-height:1.65;color:var(--text-2);margin:0;}
-  .card .card-link{margin-top:auto;font-size:13.5px;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
-  .card .card-link:hover{text-decoration:underline;}
-
-  /* oss band */
-  .oss{background:var(--surface);margin-inline:-20px;padding-inline:20px;}
-  .oss .wrap{max-width:1080px;}
-  .oss-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
-  @media(max-width:760px){.oss-grid{grid-template-columns:1fr;}}
-  .badge-row{display:flex;gap:10px;flex-wrap:wrap;}
-  .badge{
-    background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px 16px;min-width:112px;
-  }
-  .badge b{display:block;font-size:20px;font-weight:600;}
-  .badge span{display:block;font-size:11px;color:var(--text-2);margin-top:4px;}
-
-  /* skills */
-  .tag-cloud{display:flex;flex-wrap:wrap;gap:10px;}
-  .tag{
-    font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:100px;
-    background:var(--surface);border:1px solid var(--border);
-  }
-
-  /* contact */
-  .contact{border-bottom:none;padding-bottom:60px;}
-  .contact-box{
-    background:var(--accent);color:var(--on-accent);border-radius:24px;
-    padding:clamp(36px,6vw,64px);display:flex;flex-direction:column;gap:18px;
-  }
-  .contact-box h2{font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--on-accent);}
-  .contact-box p{font-size:15.5px;opacity:.88;max-width:48ch;line-height:1.6;margin:0;}
-  .contact-box .btn-primary{background:var(--on-accent);color:var(--accent);}
-  .contact-box .btn-primary:hover{background:var(--on-accent);opacity:.9;}
-  .contact-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;opacity:.85;margin-top:4px;}
-
-  footer{padding-block:28px;text-align:center;font-size:12.5px;color:var(--text-2);}
-
-  [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
-  [data-reveal].in{opacity:1;transform:none;}
-  @media (prefers-reduced-motion: reduce){
-    [data-reveal]{opacity:1;transform:none;transition:none;}
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Page-wide spotlights: same glow language as the hero, stretched to the full
+     document so it scrolls with the page and different sections get lit up
+     as you scroll up or down. -->
+<div class="page-glow" style="top:10%; left:-8%;" aria-hidden="true"></div>
+<div class="page-glow" style="top:32%; right:-10%;" aria-hidden="true"></div>
+<div class="page-glow" style="top:54%; left:-6%;" aria-hidden="true"></div>
+<div class="page-glow" style="top:75%; right:-8%;" aria-hidden="true"></div>
+<div class="page-glow" style="top:92%; left:8%;" aria-hidden="true"></div>
 
-<header class="nav">
-  <div class="nav-in">
-    <div class="brand"><span class="dot"></span>Oduyomi Oluwadamilare</div>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-      <a class="theme-btn" href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener" aria-label="GitHub profile">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+<header class="nav glass">
+  <div class="container-x nav-inner">
+    <a href="#top" class="brand">
+      <img src="images/brand/logo-white.svg" alt="Damilare Oduyomi logo" class="brand-logo">
+      <span class="brand-name">DAMILARE <span class="muted">OD.</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about"><span class="slash">/</span>about</a></li>
+      <li><a href="#work"><span class="slash">/</span>work</a></li>
+      <li><a href="#ecosystem"><span class="slash">/</span>ecosystem</a></li>
+      <li><a href="#skills"><span class="slash">/</span>skills</a></li>
+      <li><a href="#contact"><span class="slash">/</span>contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a class="icon-btn" href="https://www.linkedin.com/in/oluwadamilareoduyomi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg>
       </a>
-      <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.7 15.2A8.5 8.5 0 1 1 8.8 3.3a7 7 0 0 0 11.9 11.9Z"/></svg>
-      </button>
+      <a class="nav-github" href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+        github ↗
+      </a>
+    </div>
+
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="#about"><span class="slash">/</span>about</a></li>
+      <li><a href="#work"><span class="slash">/</span>work</a></li>
+      <li><a href="#ecosystem"><span class="slash">/</span>ecosystem</a></li>
+      <li><a href="#skills"><span class="slash">/</span>skills</a></li>
+      <li><a href="#contact"><span class="slash">/</span>contact</a></li>
+    </ul>
+    <div class="nav-mobile-actions">
+      <a class="nav-github" href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener noreferrer">github ↗</a>
+      <a class="icon-btn" href="https://www.linkedin.com/in/oluwadamilareoduyomi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg>
+      </a>
     </div>
   </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <section class="hero" id="top">
-    <div class="hero-grid">
-      <div data-reveal>
-        <div class="eyebrow">UI/UX &amp; Web3 Frontend Engineer</div>
-        <h1>From pixel to protocol.</h1>
-        <p class="lede">UI/UX and frontend designer who takes products from Figma to shipped interface. Owned the full UI/UX for a live, 100+ person open-source protocol, then verified every screen matched spec once it hit production.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#work">View the work</a>
-          <a class="btn btn-ghost" href="mailto:damilare.oduyomi@gmail.com">Email me</a>
-        </div>
+  <!-- ================= HERO ================= -->
+  <section id="top" class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow a animate-pulseSoft" aria-hidden="true"></div>
+    <div class="hero-glow b animate-pulseSoft" aria-hidden="true"></div>
+    <div class="hero-ghost" aria-hidden="true">OO</div>
+
+    <div class="hero-chips" aria-hidden="true">
+      <span class="hero-chip hero-reveal" style="top:13%;left:6%;transition-delay:60ms">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
+        Figma
+      </span>
+      <span class="hero-chip hero-reveal" style="top:19%;right:8%;transition-delay:180ms">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>
+        TypeScript
+      </span>
+      <span class="hero-chip hero-reveal" style="top:60%;left:4%;transition-delay:300ms">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.8346 11.7033l-1.0073-.6236a13.7268 13.7268 0 00-.0283-.2936l.8656-.8069a.3483.3483 0 00-.1154-.578l-1.1066-.414a8.4958 8.4958 0 00-.087-.2856l.6904-.9587a.3462.3462 0 00-.2257-.5446l-1.1663-.1894a9.3574 9.3574 0 00-.1407-.2622l.49-1.0761a.3437.3437 0 00-.0274-.3361.3486.3486 0 00-.3006-.154l-1.1845.0416a6.7444 6.7444 0 00-.1873-.2268l.2723-1.153a.3472.3472 0 00-.417-.4172l-1.1532.2724a14.0183 14.0183 0 00-.2278-.1873l.0415-1.1845a.3442.3442 0 00-.49-.328l-1.076.491c-.0872-.0476-.1742-.0952-.2623-.1407l-.1903-1.1673A.3483.3483 0 0016.256.955l-.9597.6905a8.4867 8.4867 0 00-.2855-.086l-.414-1.1066a.3483.3483 0 00-.5781-.1154l-.8069.8666a9.2936 9.2936 0 00-.2936-.0284L12.2946.1683a.3462.3462 0 00-.5892 0l-.6236 1.0073a13.7383 13.7383 0 00-.2936.0284L9.9803.3374a.3462.3462 0 00-.578.1154l-.4141 1.1065c-.0962.0274-.1903.0567-.2855.086L7.744.955a.3483.3483 0 00-.5447.2258L7.009 2.348a9.3574 9.3574 0 00-.2622.1407l-1.0762-.491a.3462.3462 0 00-.49.328l.0416 1.1845a7.9826 7.9826 0 00-.2278.1873L3.8413 3.425a.3472.3472 0 00-.4171.4171l.2713 1.1531c-.0628.075-.1255.1509-.1863.2268l-1.1845-.0415a.3462.3462 0 00-.328.49l.491 1.0761a9.167 9.167 0 00-.1407.2622l-1.1662.1894a.3483.3483 0 00-.2258.5446l.6904.9587a13.303 13.303 0 00-.087.2855l-1.1065.414a.3483.3483 0 00-.1155.5781l.8656.807a9.2936 9.2936 0 00-.0283.2935l-1.0073.6236a.3442.3442 0 000 .5892l1.0073.6236c.008.0982.0182.1964.0283.2936l-.8656.8079a.3462.3462 0 00.1155.578l1.1065.4141c.0273.0962.0567.1914.087.2855l-.6904.9587a.3452.3452 0 00.2268.5447l1.1662.1893c.0456.088.0922.1751.1408.2622l-.491 1.0762a.3462.3462 0 00.328.49l1.1834-.0415c.0618.0769.1235.1528.1873.2277l-.2713 1.1541a.3462.3462 0 00.4171.4161l1.153-.2713c.075.0638.151.1255.2279.1863l-.0415 1.1845a.3442.3442 0 00.49.327l1.0761-.49c.087.0486.1741.0951.2622.1407l.1903 1.1662a.3483.3483 0 00.5447.2268l.9587-.6904a9.299 9.299 0 00.2855.087l.414 1.1066a.3452.3452 0 00.5781.1154l.8079-.8656c.0972.0111.1954.0203.2936.0294l.6236 1.0073a.3472.3472 0 00.5892 0l.6236-1.0073c.0982-.0091.1964-.0183.2936-.0294l.8069.8656a.3483.3483 0 00.578-.1154l.4141-1.1066a8.4626 8.4626 0 00.2855-.087l.9587.6904a.3452.3452 0 00.5447-.2268l.1903-1.1662c.088-.0456.1751-.0931.2622-.1407l1.0762.49a.3472.3472 0 00.49-.327l-.0415-1.1845a6.7267 6.7267 0 00.2267-.1863l1.1531.2713a.3472.3472 0 00.4171-.416l-.2713-1.1542c.0628-.0749.1255-.1508.1863-.2278l1.1845.0415a.3442.3442 0 00.328-.49l-.49-1.076c.0475-.0872.0951-.1742.1407-.2623l1.1662-.1893a.3483.3483 0 00.2258-.5447l-.6904-.9587.087-.2855 1.1066-.414a.3462.3462 0 00.1154-.5781l-.8656-.8079c.0101-.0972.0202-.1954.0283-.2936l1.0073-.6236a.3442.3442 0 000-.5892zm-6.7413 8.3551a.7138.7138 0 01.2986-1.396.714.714 0 11-.2997 1.396zm-.3422-2.3142a.649.649 0 00-.7715.5l-.3573 1.6685c-1.1035.501-2.3285.7795-3.6193.7795a8.7368 8.7368 0 01-3.6951-.814l-.3574-1.6684a.648.648 0 00-.7714-.499l-1.473.3158a8.7216 8.7216 0 01-.7613-.898h7.1676c.081 0 .1356-.0141.1356-.088v-2.536c0-.074-.0536-.0881-.1356-.0881h-2.0966v-1.6077h2.2677c.2065 0 1.1065.0587 1.394 1.2088.0901.3533.2875 1.5044.4232 1.8729.1346.413.6833 1.2381 1.2685 1.2381h3.5716a.7492.7492 0 00.1296-.0131 8.7874 8.7874 0 01-.8119.9526zM6.8369 20.024a.714.714 0 11-.2997-1.396.714.714 0 01.2997 1.396zM4.1177 8.9972a.7137.7137 0 11-1.304.5791.7137.7137 0 011.304-.579zm-.8352 1.9813l1.5347-.6824a.65.65 0 00.33-.8585l-.3158-.7147h1.2432v5.6025H3.5669a8.7753 8.7753 0 01-.2834-3.348zm6.7343-.5437V8.7836h2.9601c.153 0 1.0792.1772 1.0792.8697 0 .575-.7107.7815-1.2948.7815zm10.7574 1.4862c0 .2187-.008.4363-.0243.651h-.9c-.09 0-.1265.0586-.1265.1477v.413c0 .973-.5487 1.1846-1.0296 1.2382-.4576.0517-.9648-.1913-1.0275-.4717-.2704-1.5186-.7198-1.8436-1.4305-2.4034.8817-.5599 1.799-1.386 1.799-2.4915 0-1.1936-.819-1.9458-1.3769-2.3153-.7825-.5163-1.6491-.6195-1.883-.6195H5.4682a8.7651 8.7651 0 014.907-2.7699l1.0974 1.151a.648.648 0 00.9182.0213l1.227-1.1743a8.7753 8.7753 0 016.0044 4.2762l-.8403 1.8982a.652.652 0 00.33.8585l1.6178.7188c.0283.2875.0425.577.0425.8717zm-9.3006-9.5993a.7128.7128 0 11.984 1.0316.7137.7137 0 01-.984-1.0316zm8.3389 6.71a.7107.7107 0 01.9395-.3625.7137.7137 0 11-.9405.3635z"/></svg>
+        Rust
+      </span>
+      <span class="hero-chip hero-reveal" style="bottom:18%;right:5%;transition-delay:420ms">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.003 1.716c-1.37 0-2.7.27-3.948.78A10.18 10.18 0 0 0 2.66 7.901a10.136 10.136 0 0 0-.797 3.954c0 .258.01.516.027.775a1.942 1.942 0 0 1-1.055 1.88L0 14.934v1.902l2.463-1.26.072-.032v.005l.77-.39.758-.385.066-.039 14.807-7.56 1.666-.847 3.392-1.732V2.694L17.792 5.86 3.744 13.025l-.104.055-.017-.115a8.286 8.286 0 0 1-.071-1.105c0-2.255.88-4.377 2.474-5.977a8.462 8.462 0 0 1 2.71-1.82 8.513 8.513 0 0 1 3.2-.654h.067a8.41 8.41 0 0 1 4.09 1.055l1.628-.83.126-.066a10.11 10.11 0 0 0-5.845-1.853zM24 7.143 5.047 16.808l-1.666.847L0 19.382v1.902l3.282-1.671 2.91-1.485 14.058-7.153.105-.055.016.115c.05.369.072.743.072 1.11 0 2.255-.88 4.383-2.475 5.978a8.461 8.461 0 0 1-2.71 1.82 8.305 8.305 0 0 1-3.2.654h-.06c-1.441 0-2.86-.369-4.102-1.061l-.066.033-1.683.857c.594.418 1.232.776 1.903 1.062a10.11 10.11 0 0 0 3.947.797 10.09 10.09 0 0 0 7.17-2.975 10.136 10.136 0 0 0 2.969-7.18c0-.259-.005-.523-.027-.781a1.942 1.942 0 0 1 1.055-1.88L24 9.044z"/></svg>
+        Stellar
+      </span>
+      <span class="hero-chip hero-reveal" style="bottom:11%;left:19%;transition-delay:540ms">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg>
+        Next.js
+      </span>
+      <span class="hero-chip hero-reveal" style="top:9%;right:27%;transition-delay:660ms">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>
+        Tailwind CSS
+      </span>
+    </div>
+
+    <div class="container-x hero-inner">
+      <div class="hero-badge glass hero-reveal">
+        <img src="images/headshot.png" alt="Damilare Oduyomi">
+        <p><span class="dot"></span>available for employment &amp; collaborations</p>
       </div>
-      <div class="hero-photo" data-reveal>
-        <div class="glow"></div>
-        <div class="frame">
-          <img src="images/headshot.jpg" alt="Portrait of Oduyomi Oluwadamilare Emmanuel">
-        </div>
+
+      <h1 class="hero-headline hero-reveal" style="transition-delay:80ms">
+        <span class="line">Hi, I&rsquo;m Damilare, a</span>
+        <span class="line"><span class="accent-word">designer</span> who ships</span>
+      </h1>
+
+      <p class="hero-sub hero-reveal" style="transition-delay:160ms">
+        UI/UX and frontend work,from first wireframe to the last pixel in production.
+      </p>
+
+      <div class="hero-cta hero-reveal" style="transition-delay:240ms">
+        <a href="#work" class="btn btn-primary">view the work →</a>
+        <a href="mailto:damilare.oduyomi@gmail.com" class="btn btn-ghost">email me</a>
+      </div>
+
+      <div class="stat-grid hero-reveal" style="transition-delay:320ms">
+        <div><p class="value">1,400+</p><p class="label">Commits shipped on DukaPay</p></div>
+        <div><p class="value">17</p><p class="label">Screens designed &amp; verified for Amana</p></div>
+        <div><p class="value">106</p><p class="label">Person team, Amana code reviews</p></div>
+        <div><p class="value">16+</p><p class="label">Merged PRs across the Stellar ecosystem</p></div>
       </div>
     </div>
+
+    <div class="scroll-cue animate-fadeUp" style="animation-delay:480ms" aria-hidden="true"><span></span></div>
   </section>
 
-  <section class="stats" aria-label="Highlights">
-    <div class="stat-grid">
-      <div class="stat" data-reveal><b class="mono">1,400+</b><span>Commits shipped on DukaPay</span></div>
-      <div class="stat" data-reveal><b class="mono">17</b><span>Screens designed &amp; verified for Amana</span></div>
-      <div class="stat" data-reveal><b class="mono">106</b><span>Person team, Amana code reviews</span></div>
-      <div class="stat" data-reveal><b class="mono">16+</b><span>Merged PRs across the Stellar ecosystem</span></div>
-    </div>
-  </section>
-
+  <!-- ================= ABOUT ================= -->
   <section id="about">
-    <div class="about-grid">
-      <div data-reveal>
-        <div class="kicker">About</div>
-        <h2>Design and engineering, held to the same standard.</h2>
+    <div class="container-x">
+      <div class="reveal">
+        <p class="section-label">01 / about</p>
+        <h2 class="section-title">Design and engineering, held to the same standard.</h2>
       </div>
-      <div data-reveal>
-        <p>UI/UX and frontend designer who takes products from Figma to shipped interface. Designed and owned the full UI/UX for a live, 100+ person open-source protocol, then verified every screen matched spec once it hit production.</p>
-        <p>I also run freelance graphic design and creative production work, and code comfortably in HTML, CSS and React when a design needs to become a working prototype, or Rust and Soroban when it needs to become a smart contract.</p>
-      </div>
-    </div>
-  </section>
 
-  <section id="work">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Selected work</div>
-        <h2>Four projects, one habit: ship what was designed.</h2>
-      </div>
-    </div>
-    <div class="card-grid">
-
-      <article class="card" data-reveal>
-        <div class="card-tag"><span class="pill">Founder · Protocol engineering</span></div>
-        <h3>DukaPay</h3>
-        <div class="stat-line mono">1,400+ commits · 16 forks · 23 authors</div>
-        <p>Open-source, pre-launch agent-banking protocol on Stellar/Soroban, turning local shops into stablecoin cash-in/cash-out points for the unbanked. I wrote the collateralized float settlement system in Rust/Soroban (atomic agent-to-agent rebalancing, batched net settlement, oracle-manipulation and MEV protection), and directed security hardening across the stack: Semgrep, CodeQL, Trivy and Gitleaks in CI, RLS/RBAC, JWT and PII rotation, CSRF protection. Merged 21 PRs and closed 430 issues in a single month, across 438 files and 53K+ lines changed.</p>
-        <a class="card-link" href="https://www.figma.com/design/jOQAjUaZpj7uGVwHXeOxl1/DukaPay?node-id=0-1" target="_blank" rel="noopener">View Figma →</a>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-tag"><span class="pill">UI/UX &amp; Frontend Maintainer · Feb–Aug 2026</span></div>
-        <h3>Amana</h3>
-        <div class="stat-line mono">17 screens · 106-person team</div>
-        <p>Stellar-based agricultural escrow protocol. I designed 17 screens across trade, asset-securing, withdrawal and reputation flows in Figma, owning the UI/UX single-handedly. Reviewed contributor PRs and verified CI checks across a 106-person open-source team, then confirmed the frontend implementation matched spec across all 17 screens. Built with Next.js and TypeScript, with Freighter wallet integration.</p>
-        <a class="card-link" href="https://www.figma.com/design/r4l1ciQ2AnyrOxVW9t5oCm/Amana?node-id=0-1" target="_blank" rel="noopener">View Figma →</a>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-tag"><span class="pill">Founder · Open-source tooling</span></div>
-        <h3>RepoFlow</h3>
-        <div class="stat-line mono">3-repo architecture</div>
-        <p>My own open-source platform for GitHub repo management and OSS funding on Stellar/Soroban: a Rust/Axum backend, a Next.js frontend and a Soroban smart contract. I designed and built its dark-themed SaaS landing page in vanilla HTML, CSS and JavaScript.</p>
-      </article>
-
-      <article class="card" data-reveal>
-        <div class="card-tag"><span class="pill">Freelance · Sep 2021–Aug 2025</span></div>
-        <h3>ExcelD'sign Labs</h3>
-        <div class="stat-line mono">+50% social engagement</div>
-        <p>Graphic design, branding, print and live production under my own freelance studio. Grew client social engagement by 50%, and produced weekly church livestreams averaging 50 viewers over two and a half years, alongside live production for weddings, book launches and educational events.</p>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="oss">
-    <div class="wrap">
-      <div class="oss-grid">
-        <div data-reveal>
-          <div class="kicker">Also shipping across the ecosystem</div>
-          <h2 style="font-size:clamp(22px,3vw,28px);font-weight:800;">Stellar open-source contributor, Feb 2026–present</h2>
-          <p style="color:var(--text-2);font-size:15px;line-height:1.7;margin-top:14px;max-width:56ch;">16+ merged PRs across DeFi lending, remittance and payment protocols (Agrocylo-Global, eSuStellar, Navin-contracts), with a focus on security: dependency scanning, CSP hardening, secrets rotation and CI hardening across 70+ repos.</p>
+      <div class="about-grid">
+        <div class="reveal reveal-left about-copy" style="transition-delay:100ms">
+          <p>UI/UX and frontend designer who takes products from Figma to shipped interface. Designed and owned the full UI/UX for a live, 100+ person open-source protocol, then verified every screen matched spec once it hit production.</p>
+          <p>I also run freelance graphic design and creative production work, and code comfortably in HTML, CSS and React when a design needs to become a working prototype, or Rust and Soroban when it needs to become a smart contract.</p>
         </div>
-        <div class="badge-row" data-reveal>
-          <div class="badge"><b class="mono">70+</b><span>Repos secured</span></div>
-          <div class="badge"><b class="mono">77</b><span>Public repos</span></div>
-          <div class="badge"><b class="mono">×2</b><span>Pull Shark</span></div>
-          <div class="badge"><b class="mono">1</b><span>Quickdraw</span></div>
+
+        <div class="reveal reveal-right" style="transition-delay:200ms">
+          <div class="card card-hover about-card">
+            <img src="images/headshot.png" alt="Oluwadamilare Oduyomi">
+            <div class="pad">
+              <p class="kicker">identity</p>
+              <dl class="about-dl">
+                <div class="row"><dt>name</dt><dd>Oluwadamilare Oduyomi</dd></div>
+                <div class="row"><dt>role</dt><dd>UI/UX &amp; Frontend Designer</dd></div>
+                <div class="row"><dt>base</dt><dd>Lagos, Nigeria</dd></div>
+                <div class="row"><dt>ethos</dt><dd>figma to production · verified · shipped</dd></div>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="skills">
-    <div class="kicker">Skills</div>
-    <h2 style="font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-bottom:24px;">Tools I reach for daily</h2>
-    <div class="tag-cloud" data-reveal>
-      <span class="tag">UI/UX Design</span>
-      <span class="tag">Figma</span>
-      <span class="tag">Wireframing &amp; User Flows</span>
-      <span class="tag">Adobe Photoshop</span>
-      <span class="tag">Adobe Illustrator</span>
-      <span class="tag">HTML5 &amp; CSS3</span>
-      <span class="tag">Tailwind CSS</span>
-      <span class="tag">React/Next.js</span>
-      <span class="tag">Design Systems</span>
-      <span class="tag">Design-to-Development QA</span>
-      <span class="tag">Agile/Kanban Issue Triage</span>
-      <span class="tag">Client Relationship Management</span>
+  <!-- ================= SELECTED WORK ================= -->
+  <section id="work" class="border-t zebra">
+    <div class="container-x">
+      <div class="reveal">
+        <p class="section-label">02 / work</p>
+        <h2 class="section-title">Four projects, one habit: ship what was designed.</h2>
+      </div>
+
+      <div class="work-grid">
+        <!-- DukaPay -->
+        <div class="reveal reveal-zoom">
+          <div class="card card-hover work-card">
+            <p class="work-role">Founder · Protocol engineering</p>
+            <h3 class="work-name">DukaPay</h3>
+            <p class="work-stat">1,400+ commits · 16 forks · 23 authors</p>
+            <p class="work-desc">Open-source, pre-launch agent-banking protocol on Stellar/Soroban, turning local shops into stablecoin cash-in/cash-out points for the unbanked. I wrote the collateralized float settlement system in Rust/Soroban (atomic agent-to-agent rebalancing, batched net settlement, oracle-manipulation and MEV protection), and directed security hardening across the stack: Semgrep, CodeQL, Trivy and Gitleaks in CI, RLS/RBAC, JWT and PII rotation, CSRF protection. Merged 21 PRs and closed 430 issues in a single month, across 438 files and 53K+ lines changed.</p>
+            <a href="https://www.figma.com/design/jOQAjUaZpj7uGVwHXeOxl1/DukaPay?node-id=0-1" target="_blank" rel="noopener noreferrer" class="work-link">View Figma →</a>
+          </div>
+        </div>
+
+        <!-- Amana -->
+        <div class="reveal reveal-zoom" style="transition-delay:80ms">
+          <div class="card card-hover work-card">
+            <p class="work-role">UI/UX &amp; Frontend Maintainer · Feb–Aug 2026</p>
+            <h3 class="work-name">Amana</h3>
+            <p class="work-stat">17 screens · 106-person team</p>
+            <p class="work-desc">Stellar-based agricultural escrow protocol. I designed 17 screens across trade, asset-securing, withdrawal and reputation flows in Figma, owning the UI/UX single-handedly. Reviewed contributor PRs and verified CI checks across a 106-person open-source team, then confirmed the frontend implementation matched spec across all 17 screens. Built with Next.js and TypeScript, with Freighter wallet integration.</p>
+            <a href="https://www.figma.com/design/r4l1ciQ2AnyrOxVW9t5oCm/Amana?node-id=0-1" target="_blank" rel="noopener noreferrer" class="work-link">View Figma →</a>
+          </div>
+        </div>
+
+        <!-- RepoFlow -->
+        <div class="reveal reveal-zoom" style="transition-delay:160ms">
+          <div class="card card-hover work-card">
+            <p class="work-role">Founder · Open-source tooling</p>
+            <h3 class="work-name">RepoFlow</h3>
+            <p class="work-stat">3-repo architecture</p>
+            <p class="work-desc">My own open-source platform for GitHub repo management and OSS funding on Stellar/Soroban: a Rust/Axum backend, a Next.js frontend and a Soroban smart contract. I designed and built its dark-themed SaaS landing page in vanilla HTML, CSS and JavaScript.</p>
+          </div>
+        </div>
+
+        <!-- ExcelD'sign Labs -->
+        <div class="reveal reveal-zoom" style="transition-delay:240ms">
+          <div class="card card-hover work-card">
+            <p class="work-role">Freelance · Sep 2021–Aug 2025</p>
+            <h3 class="work-name">ExcelD&rsquo;sign Labs</h3>
+            <p class="work-stat">+50% social engagement</p>
+            <p class="work-desc">Graphic design, branding, print and live production under my own freelance studio. Grew client social engagement by 50%, and produced weekly church livestreams averaging 50 viewers over two and a half years, alongside live production for weddings, book launches and educational events.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case studies: wireframes -> UI, for the two featured products.
+           Hover previews the gallery; click pins it open. -->
+      <div class="reveal reveal-left" style="transition-delay:100ms">
+        <div class="case-study glass card-hover">
+          <button type="button" class="case-toggle" aria-expanded="false">
+            <span>+ dukapay — from wireframe to UI</span>
+            <span class="hint">hover to preview · click to pin</span>
+          </button>
+          <div class="case-panel">
+            <div class="case-panel-inner">
+              <div class="case-gallery">
+                <figure>
+                  <img src="images/case-studies/dukapay-wireframes.png" alt="dukapay wireframes" class="lightbox-trigger">
+                  <figcaption>wireframes</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/case-studies/dukapay-ui.png" alt="dukapay UI design" class="lightbox-trigger">
+                  <figcaption>UI design</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-right" style="transition-delay:160ms">
+        <div class="case-study glass card-hover" style="margin-top:1.25rem">
+          <button type="button" class="case-toggle" aria-expanded="false">
+            <span>+ amana — from wireframe to UI</span>
+            <span class="hint">hover to preview · click to pin</span>
+          </button>
+          <div class="case-panel">
+            <div class="case-panel-inner">
+              <div class="case-gallery">
+                <figure>
+                  <img src="images/case-studies/amana-wireframes.png" alt="Amana wireframes" class="lightbox-trigger">
+                  <figcaption>wireframes</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/case-studies/amana-ui.png" alt="Amana UI design" class="lightbox-trigger">
+                  <figcaption>UI design</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="contact-box" data-reveal>
-      <h2>Let's build something worth shipping.</h2>
-      <p>Open to UI/UX and frontend roles, and to Web3/Soroban engineering work. Based in Lagos, Nigeria, working with teams anywhere.</p>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:damilare.oduyomi@gmail.com">Email damilare.oduyomi@gmail.com</a>
-        <a class="btn btn-ghost" href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-          GitHub
-        </a>
+  <!-- big faint scrolling marquee -->
+  <div class="marquee border-t" aria-hidden="true">
+    <div class="marquee-track">
+      <span>UI/UX DESIGN&nbsp;&nbsp;·&nbsp;&nbsp;FRONTEND ENGINEERING&nbsp;&nbsp;·&nbsp;&nbsp;FIGMA TO PRODUCTION&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>UI/UX DESIGN&nbsp;&nbsp;·&nbsp;&nbsp;FRONTEND ENGINEERING&nbsp;&nbsp;·&nbsp;&nbsp;FIGMA TO PRODUCTION&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ================= ECOSYSTEM ================= -->
+  <section id="ecosystem" class="border-t">
+    <div class="container-x">
+      <div class="reveal">
+        <p class="section-label">03 / ecosystem</p>
+        <h2 class="section-title">Also shipping across the ecosystem.</h2>
+        <p class="projects-lede">Stellar open-source contributor, Feb 2026–present. 16+ merged PRs across DeFi lending, remittance and payment protocols (Agrocylo-Global, eSuStellar, Navin-contracts), with a focus on security: dependency scanning, CSP hardening, secrets rotation and CI hardening across 70+ repos.</p>
+      </div>
+
+      <div class="stat-grid reveal reveal-zoom" style="transition-delay:100ms">
+        <div><p class="value">70+</p><p class="label">Repos secured</p></div>
+        <div><p class="value">77</p><p class="label">Public repos</p></div>
+        <div><p class="value">×2</p><p class="label">Pull Shark</p></div>
+        <div><p class="value">1</p><p class="label">Quickdraw</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" class="border-t zebra">
+    <div class="container-x">
+      <div class="reveal">
+        <p class="section-label">04 / skills</p>
+        <h2 class="section-title">Tools I reach for daily.</h2>
+      </div>
+
+      <div class="reveal reveal-left" style="transition-delay:100ms">
+        <div class="card toolbelt-card">
+          <div class="chips">
+            <span class="chip">UI/UX Design</span><span class="chip">Figma</span><span class="chip">Wireframing &amp; User Flows</span>
+            <span class="chip">Adobe Photoshop</span><span class="chip">Adobe Illustrator</span><span class="chip">HTML5 &amp; CSS3</span>
+            <span class="chip">Tailwind CSS</span><span class="chip">React/Next.js</span><span class="chip">Design Systems</span>
+            <span class="chip">Design-to-Development QA</span><span class="chip">Agile/Kanban Issue Triage</span><span class="chip">Client Relationship Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="border-t contact">
+    <div class="contact-glow" aria-hidden="true"></div>
+    <div class="container-x">
+      <div class="reveal contact-inner">
+        <p class="section-label">05 / contact</p>
+        <h2 class="section-title">Let&rsquo;s build something worth shipping.</h2>
+        <p class="contact-lede">Open to UI/UX and frontend roles, and to Web3/Soroban engineering work. Based in Lagos, Nigeria, working with teams anywhere.</p>
+
+        <div class="contact-actions">
+          <a href="mailto:damilare.oduyomi@gmail.com" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>
+            email me
+          </a>
+          <a href="https://www.linkedin.com/in/oluwadamilareoduyomi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="circle-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg>
+          </a>
+          <a href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="circle-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>© 2026 Oduyomi Oluwadamilare Emmanuel</footer>
+<footer class="site-footer border-t">
+  <div class="container-x footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/brand/logo-white.svg" alt="Damilare Oduyomi logo" class="brand-logo">
+        <span class="name">Damilare Oduyomi</span>
+      </div>
+      <div class="footer-social">
+        <a class="circle-btn" style="height:2.25rem;width:2.25rem" href="https://www.linkedin.com/in/oluwadamilareoduyomi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a class="circle-btn" style="height:2.25rem;width:2.25rem" href="https://github.com/ExcelDsigN-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a class="circle-btn" style="height:2.25rem;width:2.25rem" href="mailto:damilare.oduyomi@gmail.com" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>
+        </a>
+      </div>
+    </div>
 
-<script>
-(function(){
-  var root = document.documentElement;
-  var btn = document.getElementById('themeToggle');
-  try{
-    var saved = localStorage.getItem('theme');
-    if(saved === 'light' || saved === 'dark'){ root.setAttribute('data-theme', saved); }
-  }catch(e){}
-  btn.addEventListener('click', function(){
-    var current = root.getAttribute('data-theme');
-    var mql = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = current ? current === 'dark' : mql;
-    var next = isDark ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try{ localStorage.setItem('theme', next); }catch(e){}
-  });
+    <div class="footer-bottom">
+      <p id="copyright-year">© 2026 Oluwadamilare Oduyomi · MIT licensed open source</p>
+      <p>built with <span class="accent">HTML</span> + <span class="accent">CSS</span> · designed pixel by pixel</p>
+    </div>
+  </div>
+</footer>
 
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
-      });
-    }, {threshold:0.15});
-    document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
-  } else {
-    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in'); });
-  }
-})();
-</script>
+<!-- lightbox for case-study images -->
+<div class="lightbox" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
