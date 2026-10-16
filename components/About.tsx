@@ -18,31 +18,28 @@ export default function About() {
             <div className="space-y-5 text-base leading-relaxed text-slate-400">
               <p>{profile.mission}</p>
               <p>
-                I work across the entire stack of a Web3 product — from the Rust
-                smart contracts that hold value, to the indexers that make
-                on-chain state queryable, to the dashboards and SDKs that people
-                actually use. Since creating this account in early 2026 I have
-                shipped 16+ merged pull requests into Stellar ecosystem
-                projects, plus a portfolio of 60+ public repositories spanning
-                escrow, lending, remittances, agent-banking, and payments.
+                Most of my work is on Soroban. I&apos;ve had 148 pull requests
+                merged into 78 repositories I don&apos;t own, including security
+                fixes in five teams&apos; contracts: checks-effects-interactions
+                violations, reentrancy, IDOR and key rotation.
               </p>
               <p>
-                My work is open source, MIT licensed, and built to be audited.
-                I care about correctness, security hardening, and real-world
-                deployment — the boring engineering that makes trust
-                technology actually trustworthy.
+                I also founded DukaPay, an open-source agent-banking protocol on
+                Stellar, where I lead protocol design and code review for around
+                250 contributors. And I design: the UI/UX for Amana and
+                DukaPay&apos;s design system are mine, in Figma.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="card card-hover overflow-hidden">
+            <div className="card overflow-hidden">
               <Image
                 src="/images/headshot.png"
                 alt={profile.name}
                 width={864}
                 height={1100}
-                className="h-56 w-full object-cover object-top grayscale transition-all duration-500 hover:grayscale-0"
+                className="h-72 w-full object-cover object-[50%_25%]"
               />
               <div className="p-6">
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
@@ -57,7 +54,7 @@ export default function About() {
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <dt className="shrink-0 font-mono text-slate-400">role</dt>
-                  <dd className="text-right text-slate-200">{profile.title}</dd>
+                  <dd className="text-right text-slate-200">Soroban engineer · UI/UX designer</dd>
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <dt className="shrink-0 font-mono text-slate-400">base</dt>
@@ -68,7 +65,7 @@ export default function About() {
                 <div className="flex items-start justify-between gap-4">
                   <dt className="shrink-0 font-mono text-slate-400">ethos</dt>
                   <dd className="text-right text-slate-200">
-                    auditable · open · for real markets
+                    tested · reviewed · for real markets
                   </dd>
                 </div>
               </dl>

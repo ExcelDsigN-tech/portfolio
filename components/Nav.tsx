@@ -8,9 +8,7 @@ import { profile } from "@/lib/data";
 const links = [
   { href: "#about", label: "about" },
   { href: "#stack", label: "stack" },
-  { href: "#trustlink", label: "trustlink" },
-  { href: "#projects", label: "projects" },
-  { href: "#oss", label: "oss" },
+  { href: "#work", label: "work" },
   { href: "#contact", label: "contact" },
 ];
 
@@ -60,7 +58,7 @@ export default function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition-colors hover:border-accent/40 hover:text-accent"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 press hover:border-accent/40 hover:text-accent"
           >
             <LinkedInIcon className="h-4 w-4" />
           </a>
@@ -68,10 +66,10 @@ export default function Nav() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2 font-mono text-xs font-medium text-white transition-colors hover:bg-primary-400"
+            className="press inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2 text-xs font-semibold text-white hover:bg-primary-400"
           >
             <GithubIcon className="h-3.5 w-3.5" />
-            github ↗
+            GitHub ↗
           </a>
         </div>
 
@@ -114,10 +112,10 @@ export default function Nav() {
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-medium text-accent"
+                className="press inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2 text-xs font-semibold text-white"
               >
                 <GithubIcon className="h-3.5 w-3.5" />
-                github ↗
+                GitHub ↗
               </a>
               <a
                 href={profile.linkedin}

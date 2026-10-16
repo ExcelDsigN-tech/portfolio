@@ -19,19 +19,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const description =
-  "Oluwadamilare Oduyomi (ExcelDsigN-tech) — Soroban / Stellar blockchain developer building escrow, payments, and reputation systems on the Stellar network. 16+ merged PRs into the Stellar ecosystem, flagship TrustLink protocol.";
+  "Damilare Oduyomi (ExcelDsigN-tech) — Soroban engineer. 148 merged PRs across 78 repos, security fixes in five teams' Soroban contracts, and founder of DukaPay, an agent-banking protocol on Stellar.";
 
 export const metadata: Metadata = {
-  title: "Oluwadamilare Oduyomi — Soroban / Stellar Blockchain Developer",
+  title: "Damilare Oduyomi — Soroban Engineer",
   description,
   keywords: [
     "Soroban",
     "Stellar",
     "Rust smart contracts",
     "blockchain developer",
-    "escrow protocol",
-    "TrustLink",
-    "Solana",
+    "smart contract security",
+    "DukaPay",
     "Web3",
     "TypeScript",
     "Next.js",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Oluwadamilare Oduyomi" }],
   creator: "ExcelDsigN-tech",
   openGraph: {
-    title: "Oluwadamilare Oduyomi — Soroban / Stellar Blockchain Developer",
+    title: "Damilare Oduyomi — Soroban Engineer",
     description,
     type: "website",
     locale: "en_US",
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oluwadamilare Oduyomi — Soroban / Stellar Blockchain Developer",
+    title: "Damilare Oduyomi — Soroban Engineer",
     description,
   },
   robots: { index: true, follow: true },

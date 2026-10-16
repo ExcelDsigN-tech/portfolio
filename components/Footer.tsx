@@ -28,7 +28,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-colors hover:border-accent/50 hover:text-accent"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 press hover:border-accent/50 hover:text-accent"
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
@@ -37,14 +37,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-colors hover:border-accent/50 hover:text-accent"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 press hover:border-accent/50 hover:text-accent"
             >
               <GithubIcon className="h-4 w-4" />
             </a>
             <a
               href={`mailto:${profile.email}`}
               aria-label="Email"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-colors hover:border-accent/50 hover:text-accent"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 press hover:border-accent/50 hover:text-accent"
             >
               <MailIcon className="h-4 w-4" />
             </a>
@@ -53,13 +53,10 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="font-mono text-xs text-slate-400">
-            © {year} {profile.name} · MIT licensed open source
+            © {year} {profile.name}
           </p>
           <p className="font-mono text-xs text-slate-400">
-            built with{" "}
-            <span className="text-accent">Next.js</span> +{" "}
-            <span className="text-accent">Tailwind</span> · running on{" "}
-            <span className="text-accent">Stellar</span>-grade discipline
+            Built with Next.js and Tailwind
           </p>
         </div>
       </div>

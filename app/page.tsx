@@ -1,9 +1,7 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
-import Flagship from "@/components/Flagship";
-import Projects from "@/components/Projects";
-import OpenSource from "@/components/OpenSource";
+import Work from "@/components/Work";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -12,9 +10,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <Flagship />
-      <Projects />
-      <OpenSource />
+      <Work />
       <Contact />
     </>
   );
