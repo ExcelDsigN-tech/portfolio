@@ -47,22 +47,12 @@ const config: Config = {
       },
       keyframes: {
         fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
-        },
-        pulseSoft: {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.9" },
         },
       },
       animation: {
-        fadeUp: "fadeUp 0.7s ease-out both",
-        blink: "blink 1.1s step-end infinite",
-        pulseSoft: "pulseSoft 4s ease-in-out infinite",
+        fadeUp: "fadeUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) both",
       },
     },
   },

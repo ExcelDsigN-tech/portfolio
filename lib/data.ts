@@ -1,63 +1,66 @@
-export interface Project {
-  name: string;
-  tagline: string;
-  description: string;
-  stack: string[];
-  repo: string;
-  stars?: string;
-  featured?: boolean;
-  topics?: string[];
-  image?: string;
+export interface Link {
+  label: string;
+  href: string;
 }
 
-export interface Contribution {
-  repo: string;
-  type: string;
-  detail: string;
+export interface WorkItem {
+  id: string;
+  title: string;
+  role: string;
+  status?: string;
+  description: string;
+  fixes?: { text: string; prs: Link[] }[];
+  skills: string[];
+  links: Link[];
+  image?: { src: string; alt: string; width: number; height: number; fit?: "contain" };
+  diagram?: boolean;
 }
 
 export const profile = {
   name: "Oluwadamilare Oduyomi",
+  shortName: "Damilare Oduyomi",
   handle: "ExcelDsigN-tech",
-  title: "Soroban / Stellar Blockchain Developer",
+  title: "Soroban engineer",
   tagline:
-    "I build programmable trust — escrow, payments, and reputation systems on the Stellar network, engineered for the markets that need them most.",
+    "148 merged PRs across 78 repos, security fixes in five teams' contracts, and founder of DukaPay.",
   email: "oluwadamilareoduyomi@gmail.com",
   github: "https://github.com/ExcelDsigN-tech",
+  mergedPrs:
+    "https://github.com/search?q=author%3AExcelDsigN-tech+is%3Apr+is%3Amerged+-user%3AExcelDsigN-tech&type=pullrequests",
   linkedin: "https://www.linkedin.com/in/oluwadamilareoduyomi/",
   location: "Africa / Remote",
   mission:
-    "Most cross-border and local economies run on trust gaps — pay first, hope later. I build the on-chain rails that replace that gap: milestone escrow, auditable agent-banking, remittances, and savings circles. My work targets the real world first: African remittances, escrow for agriculture, and low-cost payments.",
+    "Most cross-border and local economies run on trust gaps — pay first, hope later. I work on the on-chain rails that close that gap: agent banking, escrow, lending and remittances on Stellar, aimed at the markets that need them most.",
   stats: [
-    { value: "16+", label: "Merged PRs into Stellar ecosystem" },
-    { value: "67", label: "Public repositories" },
-    { value: "4", label: "Layers: contracts, indexer, web, SDK" },
-    { value: "100%", label: "Open source, MIT licensed" },
+    { value: "148", label: "Merged PRs into other teams' repos" },
+    { value: "78", label: "Repos contributed to" },
+    { value: "5", label: "Teams' contracts with merged security fixes" },
+    { value: "1,600", label: "Commits on DukaPay, from ~250 contributors" },
   ],
   focusAreas: [
     {
-      title: "Smart Contracts",
+      title: "Smart contracts",
       detail:
-        "Soroban contracts in Rust — escrow vaults, milestone-based payments, dispute resolution, and on-chain reputation.",
-      stack: ["Rust", "Soroban SDK v22"],
+        "Soroban contracts in Rust: solvency invariants, checks-effects-interactions, access control and key rotation, tested with proptest and fuzzing.",
+      stack: ["Rust", "Soroban", "proptest"],
     },
     {
-      title: "Backend Infrastructure",
+      title: "Backend",
       detail:
-        "Real-time Rust indexers bridging on-chain events to off-chain data with REST + WebSocket APIs and PostgreSQL.",
-      stack: ["Axum", "Tokio", "SQLx", "PostgreSQL"],
+        "Express and PostgreSQL APIs with wallet sign-in, webhooks and live updates, plus a Rust event indexer feeding Postgres.",
+      stack: ["Node.js", "PostgreSQL", "Tokio"],
     },
     {
-      title: "Frontend Engineering",
+      title: "Frontend",
       detail:
-        "Next.js dashboards and dApps with deep wallet integration — Freighter, transaction builders, live on-chain state.",
-      stack: ["Next.js 14", "React", "TypeScript", "Tailwind"],
+        "Next.js dashboards with Freighter and Albedo wallet adapters, transaction builders and live on-chain state.",
+      stack: ["Next.js", "TypeScript", "React"],
     },
     {
-      title: "Protocol & DeFi Design",
+      title: "UI/UX design",
       detail:
-        "Lending, remittance, agent-banking, prediction markets, and savings circles — designed for low-cost, high-trust rails.",
-      stack: ["Stellar", "USDC", "Web3"],
+        "Product screens and design systems in Figma: the full Amana escrow app and DukaPay's brand and component kit.",
+      stack: ["Figma", "Design systems"],
     },
   ],
   toolbelt: [
@@ -68,202 +71,121 @@ export const profile = {
     "React",
     "Node.js",
     "Express",
-    "Axum",
-    "Tokio",
-    "SQLx",
     "PostgreSQL",
     "Redis",
+    "Tokio",
+    "SQLx",
     "Docker",
     "AWS",
-    "Vercel",
     "GitHub Actions",
     "Jest",
     "Vitest",
     "Playwright",
+    "proptest",
     "Figma",
   ],
 };
 
-export const flagship = {
-  name: "TrustLink",
-  tagline: "Decentralized B2B Escrow on Stellar Soroban",
-  mission:
-    "TrustLink is a decentralized escrow and reputation protocol that secures cross-border B2B service agreements. It replaces the \u201cpay first\u201d trust gap with a neutral on-chain vault that only releases funds when milestones are approved.",
-  repo: "https://github.com/ExcelDsigN-tech/TRUSTLINK",
-  architecture: [
-    {
-      layer: "Contracts",
-      role: "Soroban smart contract",
-      detail:
-        "Milestone escrow, funding, release, refund, dispute lifecycle, and on-chain reputation — covered by 16 integration tests.",
-      stack: ["Rust", "Soroban SDK v22"],
+const pr = (repo: string, n: number): Link => ({
+  label: `#${n}`,
+  href: `https://github.com/${repo}/pull/${n}`,
+});
+
+export const work: WorkItem[] = [
+  {
+    id: "security",
+    title: "Soroban security fixes across the Stellar ecosystem",
+    role: "Open-source contributor",
+    description:
+      "Merged fixes in other teams' Soroban contracts — each one reviewed and accepted by that project's maintainers.",
+    fixes: [
+      {
+        text: "RemitLend — a checks-effects-interactions violation in deposit_collateral",
+        prs: [pr("LabsCrypt/remitlend", 1790)],
+      },
+      {
+        text: "Astera — multiple invoice-contract issues, including a CEI violation and a days_late ceiling bug",
+        prs: [pr("astera-hq/Astera", 480)],
+      },
+      {
+        text: "InverseArena — reentrancy guards, and an IDOR / nonce fix in payouts",
+        prs: [
+          pr("INVERSEARENA/inversearena-frontend", 938),
+          pr("INVERSEARENA/inversearena-frontend", 1259),
+        ],
+      },
+      {
+        text: "ACBU — storage-security and reserve-minting fixes",
+        prs: [
+          pr("Pi-Defi-world/acbu-smart-contract", 574),
+          pr("Pi-Defi-world/acbu-smart-contract", 683),
+        ],
+      },
+      {
+        text: "Navin — admin key rotation and pause guards",
+        prs: [
+          pr("Navin-xmr/navin-contracts", 730),
+          pr("Navin-xmr/navin-contracts", 953),
+        ],
+      },
+    ],
+    skills: ["Rust", "Soroban", "Smart contract security"],
+    links: [{ label: "All my merged PRs", href: profile.mergedPrs }],
+    image: {
+      src: "/projects/security/merged-prs.png",
+      alt: "Six merged pull requests on GitHub: RemitLend #1790, Astera #480, InverseArena #1259 and #938, ACBU #574, Navin #730",
+      width: 1248,
+      height: 557,
+      fit: "contain",
     },
-    {
-      layer: "Indexer",
-      role: "Rust / Axum backend",
-      detail:
-        "Polls Soroban RPC for events and exposes REST + WebSocket APIs feeding live dashboards. PostgreSQL via SQLx.",
-      stack: ["Axum", "Tokio", "SQLx", "PostgreSQL"],
+  },
+  {
+    id: "dukapay-contracts",
+    title: "DukaPay — Soroban contracts for agent-banking float and settlement",
+    role: "Founder, lead maintainer · protocol design and code review",
+    status: "Testnet, not audited",
+    description:
+      "Agents lock USDC as collateral, and the vault caps their e-money at collateral × haircut, so the contract enforces solvency instead of relying on trust. The vault nets batched transfers atomically — deltas must sum to zero and every agent stays solvent. Lending, oracle, circuit-breaker and multisig-governance contracts sit alongside, with 428 contract tests passing, plus proptest and a fuzzing harness. Most contract code comes from contributors; I own the design and review.",
+    skills: ["Rust", "Soroban", "proptest", "Fuzzing"],
+    links: [
+      { label: "Repository", href: "https://github.com/ExcelDsigN-tech/dukapay" },
+      { label: "Architecture", href: "https://github.com/ExcelDsigN-tech/dukapay/blob/main/ARCHITECTURE.md" },
+    ],
+    diagram: true,
+  },
+  {
+    id: "dukapay-app",
+    title: "DukaPay — Next.js dashboard, Express API and TypeScript SDK",
+    role: "Founder, lead maintainer",
+    status: "Testnet, not audited",
+    description:
+      "A Next.js 16 app with an agent dashboard, admin console, loan, lending and remittance screens, on an Express / PostgreSQL API with SEP-53 wallet sign-in, CSRF protection, SSRF-guarded webhooks, OpenAPI docs and live updates over server-sent events. @dukapay/sdk ships Freighter and Albedo adapters and React hooks. Playwright tests cover borrowing, repayment, lender withdrawals and remittances.",
+    skills: ["Next.js", "Node.js", "PostgreSQL", "TypeScript", "Wallet integration"],
+    links: [
+      { label: "Repository", href: "https://github.com/ExcelDsigN-tech/dukapay" },
+    ],
+  },
+  {
+    id: "amana-design",
+    title: "Amana — UI/UX design for agricultural trade escrow on Stellar",
+    role: "UI/UX designer",
+    description:
+      "I designed the UI/UX for Amana, an open-source escrow protocol for inter-regional agricultural trade on Stellar: 17 desktop screens and 6 mobile screens covering vault, trade creation, deposit, withdrawal and reputation flows, plus a style guide — checked against the shipped product.",
+    skills: ["Figma", "UI design", "Design systems"],
+    links: [
+      { label: "Amana repository", href: "https://github.com/KingFRANKHOOD/Amana" },
+    ],
+    image: {
+      src: "/projects/amana/dashboard.png",
+      alt: "Amana vault dashboard design: escrow release sequence, vault value, contract manifest and audit log",
+      width: 1360,
+      height: 1600,
     },
-    {
-      layer: "Dashboard",
-      role: "Next.js App Router",
-      detail:
-        "Wallet connection (Freighter), escrow list/detail views, and a reputation explorer — all real-time.",
-      stack: ["Next.js 14", "Tailwind", "TypeScript"],
-    },
-    {
-      layer: "SDK",
-      role: "TypeScript SDK",
-      detail:
-        "Full Soroban transaction builders for create/fund/approve/dispute flows, browser signing via Freighter.",
-      stack: ["TypeScript", "Stellar SDK v12"],
-    },
-  ],
-  flow: [
-    "Client creates escrow with milestone weights + descriptions",
-    "Client funds the escrow (e.g. USDC via Stellar)",
-    "Freelancer delivers; client approves each milestone",
-    "Funds release from the vault per approved milestone",
-    "Dispute? Evidence submitted as SHA-256 hashes, mediator rules on-chain",
-    "Completion mints verifiable on-chain reputation for both parties",
-  ],
+  },
+];
+
+export const otherWork: Link & { description: string } = {
+  label: "soroban-sql-sync",
+  href: "https://github.com/ExcelDsigN-tech/soroban-sql-sync",
+  description: "A Soroban event indexer in Rust that bridges on-chain Stellar data into PostgreSQL with Tokio and SQLx.",
 };
-
-export const featuredProjects: Project[] = [
-  {
-    name: "dukapay",
-    tagline: "Agent-Banking for Stellar",
-    description:
-      "The open, auditable agent-banking layer for Stellar — turning local shops into stablecoin cash-in/cash-out points with solvency enforced on-chain.",
-    stack: ["TypeScript", "Soroban", "Stellar", "Stablecoin"],
-    repo: "https://github.com/ExcelDsigN-tech/dukapay",
-    topics: ["agent-banking", "fintech", "stablecoin", "stellar", "soroban"],
-    image: "/projects/dukapay.png",
-    featured: true,
-  },
-  {
-    name: "Amana",
-    tagline: "Agricultural Trade Escrow",
-    description:
-      "Decentralized escrow protocol securing inter-regional agricultural trade — Soroban smart contracts act as a neutral third party between farmers and buyers.",
-    stack: ["TypeScript", "Soroban", "Stellar"],
-    repo: "https://github.com/ExcelDsigN-tech/Amana",
-    topics: ["escrow", "agriculture", "stellar", "soroban"],
-    image: "/projects/amana.png",
-    featured: true,
-  },
-  {
-    name: "TrustLink",
-    tagline: "B2B Escrow & Reputation",
-    description:
-      "Decentralized escrow + reputation protocol for cross-border service agreements. Full monorepo: Soroban contracts, Rust indexer, Next.js dashboard, TypeScript SDK.",
-    stack: ["Rust", "Soroban", "Axum", "Next.js", "PostgreSQL"],
-    repo: "https://github.com/ExcelDsigN-tech/TRUSTLINK",
-    topics: ["blockchain", "escrow", "smart-contracts", "soroban", "stellar"],
-  },
-  {
-    name: "SwiftRemit",
-    tagline: "Escrow-Based USDC Remittances",
-    description:
-      "Senders deposit stablecoins, agents confirm off-chain payouts, and platform fees are deducted automatically — secure and fully transparent.",
-    stack: ["Stellar", "USDC", "Soroban"],
-    repo: "https://github.com/ExcelDsigN-tech/SwiftRemit",
-  },
-  {
-    name: "zaps",
-    tagline: "Tap-to-Pay Mobile Payments",
-    description:
-      "Stellar-native payment app — pay directly with crypto via NFC tap-to-pay or QR scan-to-pay; merchants get instant USD settlement.",
-    stack: ["Rust", "Stellar", "Mobile", "NFC"],
-    repo: "https://github.com/ExcelDsigN-tech/zaps",
-  },
-  {
-    name: "Agrocylo-Global",
-    tagline: "Farm-to-Consumer Escrow",
-    description:
-      "Peer-to-peer trade between farmers and consumers using escrow contracts — removes intermediaries and builds trust through transparent, verifiable transactions.",
-    stack: ["TypeScript", "Soroban", "Stellar"],
-    repo: "https://github.com/ExcelDsigN-tech/Agrocylo-Global",
-  },
-  {
-    name: "Stellar-GreenPay",
-    tagline: "Green Payments",
-    description:
-      "Stellar-based green payments initiative — donor history, transparent allocation, and sustainability-focused rails on-chain.",
-    stack: ["TypeScript", "Stellar", "Soroban"],
-    repo: "https://github.com/ExcelDsigN-tech/Stellar-GreenPay",
-  },
-];
-
-export const moreProjects: Project[] = [
-  {
-    name: "SplitNaira",
-    tagline: "Savings & Splits",
-    description: "Savings-circle / split-payment rails for low-cost local markets.",
-    stack: ["Soroban", "Stellar"],
-    repo: "https://github.com/ExcelDsigN-tech/SplitNaira",
-  },
-  {
-    name: "soroban-sql-sync",
-    tagline: "On-chain to SQL",
-    description: "Sync Soroban contract state and events into PostgreSQL for queryable analytics.",
-    stack: ["Rust", "SQLx", "PostgreSQL"],
-    repo: "https://github.com/ExcelDsigN-tech/soroban-sql-sync",
-  },
-  {
-    name: "soroban-debugger",
-    tagline: "Contract Tooling",
-    description: "Developer tooling to inspect, simulate, and debug Soroban contract calls.",
-    stack: ["Rust", "Soroban"],
-    repo: "https://github.com/ExcelDsigN-tech/soroban-debugger",
-  },
-  {
-    name: "stellar-suite",
-    tagline: "Ecosystem Tooling",
-    description: "A suite of utilities and helpers for building on the Stellar ecosystem faster.",
-    stack: ["TypeScript", "Stellar"],
-    repo: "https://github.com/ExcelDsigN-tech/stellar-suite",
-  },
-  {
-    name: "Lumenpulse",
-    tagline: "Prediction Markets",
-    description: "Prediction-market protocol experiments on Stellar rails.",
-    stack: ["Soroban", "TypeScript"],
-    repo: "https://github.com/ExcelDsigN-tech/Lumenpulse",
-  },
-  {
-    name: "NovaSupport",
-    tagline: "On-chain Support",
-    description: "Community support & launchpad safety rails with emergency-withdrawal safeguards.",
-    stack: ["Soroban", "Stellar"],
-    repo: "https://github.com/ExcelDsigN-tech/NovaSupport",
-  },
-];
-
-export const contributions: Contribution[] = [
-  {
-    repo: "Stellar ecosystem",
-    type: "feature",
-    detail:
-      "Admin rotation for lending contracts — enabling safe key rotation on Soroban lending protocols.",
-  },
-  {
-    repo: "Stellar ecosystem",
-    type: "feature",
-    detail:
-      "Donor history for green-payments — transparent on-chain allocation and provenance.",
-  },
-  {
-    repo: "Stellar ecosystem",
-    type: "fix",
-    detail:
-      "Emergency-withdrawal fixes for community launchpads — closing a critical user-funds safety gap.",
-  },
-  {
-    repo: "Stellar ecosystem",
-    type: "security",
-    detail:
-      "Security-hardening across projects: dependency scanning, CSP, secrets rotation, and CI hardening.",
-  },
-];

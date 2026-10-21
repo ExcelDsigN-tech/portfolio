@@ -8,10 +8,9 @@ Live: deployable in one click on Vercel (guide below).
 
 ## Highlights
 
-- **Flagship deep-dive** — TrustLink, a decentralized B2B escrow + reputation protocol built on Stellar Soroban (Rust contracts, Axum/SQLx indexer, Next.js dashboard, TS SDK, 16 integration tests).
-- **6 featured projects** across payments, escrow, lending, and remittances for African markets.
-- **Open-source section** — 16+ merged PRs into the Stellar ecosystem, categorized by type (feature / fix / security).
-- **Scroll-reveal animations, terminal-style hero, custom glow design tokens**, with `prefers-reduced-motion` fallbacks.
+- **Selected work** — merged Soroban security fixes (each linked to its PR), DukaPay contracts and app, and Amana UI/UX design.
+- **Verifiable numbers** — 148 merged PRs across 78 external repos, checked against GitHub.
+- **Scroll-reveal animations and press feedback**, with `prefers-reduced-motion` fallbacks.
 - **SEO-ready**: metadata, Open Graph, Twitter cards, keywords, robots.
 
 ---
@@ -23,9 +22,9 @@ Live: deployable in one click on Vercel (guide below).
 | Framework  | Next.js 14.2 (App Router, static prerender)   |
 | Language   | TypeScript 5.5                                |
 | Styling    | Tailwind CSS 3.4 + custom design tokens       |
-| Fonts      | Space Grotesk (sans) + JetBrains Mono (mono)  |
+| Fonts      | Manrope (sans) + JetBrains Mono (mono)        |
 | Animations | CSS keyframes + IntersectionObserver reveal   |
-| Deploy     | Vercel (static, zero config)                  |
+| Deploy     | GitHub Pages (`gh-pages` branch)              |
 
 ## Project Structure
 
@@ -36,12 +35,10 @@ app/
   globals.css       # Design tokens, component classes, animations
 components/
   Nav.tsx           # Sticky nav with mobile menu
-  Hero.tsx          # Terminal-style hero + profile stats
+  Hero.tsx          # Headline + verified stats
   About.tsx         # Mission + identity card
   Skills.tsx        # Focus areas + toolbelt
-  Flagship.tsx      # TrustLink architecture + flow
-  Projects.tsx      # Featured projects + expandable "more" list
-  OpenSource.tsx    # Stellar ecosystem contributions
+  Work.tsx          # Selected work + DukaPay architecture diagram
   Contact.tsx       # Email + GitHub CTAs
   Footer.tsx
 lib/
@@ -92,12 +89,12 @@ Note: if port 3000 is already in use on your machine, run with `set PORT=3100 &&
 
 ## Customizing the Content
 
-All content lives in **`lib/data.ts`**: profile stats, focus areas, toolbelt, TrustLink architecture/flow, featured + more projects, and contributions. Edit that one file to update the whole site.
+All content lives in **`lib/data.ts`**: profile stats, focus areas, toolbelt, and selected work. Edit that one file to update the whole site.
 
-Colors and design tokens are in **`tailwind.config.ts`** and **`app/globals.css`** (base `#050507`, accent violet `#8b7cff`, accent cyan `#5ce1e6`).
+Design direction, palette and rules are in **`design-taste/design-taste.md`**; tokens live in **`tailwind.config.ts`** and **`app/globals.css`**.
 
 ---
 
 ### Audit summary
 
-Portfolio content was derived from a live audit of `github.com/ExcelDsigN-tech`: 67 public repos, 16+ merged PRs, Quickdraw + Pull Shark x2 achievements, and the TrustLink monorepo (contracts, indexer, dashboard, SDK) — all reflected in the site's data layer.
+Numbers were checked against GitHub on 2026-10-13: 148 merged PRs in 78 repos not owned by ExcelDsigN-tech (`author:ExcelDsigN-tech is:pr is:merged`), and DukaPay at ~1,600 commits from ~250 contributors. Re-check before changing them.

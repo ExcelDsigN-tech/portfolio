@@ -15,9 +15,9 @@ export default function Skills() {
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {profile.focusAreas.map((area, i) => (
             <Reveal key={area.title} delay={i * 80}>
-              <div className="card card-hover h-full p-6">
+              <div className="card h-full p-6">
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs text-accent/70">
+                  <span className="font-mono text-xs text-accent">
                     0{i + 1}
                   </span>
                   <h3 className="text-lg font-semibold text-white">
@@ -44,13 +44,9 @@ export default function Skills() {
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
               toolbelt
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {profile.toolbelt.map((tool) => (
-                <span key={tool} className="chip">
-                  {tool}
-                </span>
-              ))}
-            </div>
+            <p className="mt-4 text-sm leading-relaxed text-slate-300">
+              {profile.toolbelt.join(" · ")}
+            </p>
           </div>
         </Reveal>
       </div>
