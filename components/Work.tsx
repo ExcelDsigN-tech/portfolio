@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DesignSystemPanel from "@/components/DesignSystemPanel";
 import Reveal from "@/components/Reveal";
 import { otherWork, work, type WorkItem } from "@/lib/data";
 
@@ -86,7 +87,7 @@ function DukaPayDiagram() {
 }
 
 function WorkCard({ item, index }: { item: WorkItem; index: number }) {
-  const hasVisual = item.image || item.diagram;
+  const hasVisual = item.image || item.diagram || item.designSystem;
   return (
     <article
       id={item.id}
@@ -164,6 +165,8 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
         <div className="border-t border-white/10 bg-base-900 lg:border-l lg:border-t-0">
           {item.diagram ? (
             <DukaPayDiagram />
+          ) : item.designSystem ? (
+            <DesignSystemPanel system={item.designSystem} />
           ) : (
             item.image && (
               <div

@@ -3,6 +3,14 @@ export interface Link {
   href: string;
 }
 
+export interface DesignSystem {
+  theme: string;
+  note: string;
+  tokens: { name: string; hex: string }[];
+  components: { name: string; detail: string }[];
+  more: string;
+}
+
 export interface WorkItem {
   id: string;
   title: string;
@@ -14,6 +22,7 @@ export interface WorkItem {
   links: Link[];
   image?: { src: string; alt: string; width: number; height: number; fit?: "contain" };
   diagram?: boolean;
+  designSystem?: DesignSystem;
 }
 
 export const profile = {
@@ -164,6 +173,34 @@ export const work: WorkItem[] = [
     links: [
       { label: "Repository", href: "https://github.com/ExcelDsigN-tech/dukapay" },
     ],
+    // From the DukaPay Figma file: "Tokens" and "Components / Cobalt" frames.
+    designSystem: {
+      theme: "Cobalt · dark",
+      note: "Every component maps to a file in components/ui or global_ui, with the same names and variants as the code.",
+      tokens: [
+        { name: "bg/canvas", hex: "#070B16" },
+        { name: "bg/surface", hex: "#0F1526" },
+        { name: "border/default", hex: "#1F2840" },
+        { name: "border/strong", hex: "#323D5C" },
+        { name: "text/primary", hex: "#EEF2FA" },
+        { name: "text/muted", hex: "#A1AAC0" },
+        { name: "action/primary", hex: "#5B8CFF" },
+        { name: "text/link", hex: "#7AA2FF" },
+        { name: "accent/gold", hex: "#F2B84B" },
+        { name: "status/ok", hex: "#4ADE80" },
+        { name: "status/warning", hex: "#FBBF24" },
+        { name: "status/danger", hex: "#FCA5A5" },
+      ],
+      components: [
+        { name: "Button", detail: "5 variants × 4 states, 3 sizes" },
+        { name: "Input", detail: "hint, focus, error, disabled, amount, memo" },
+        { name: "LoanStatusBadge", detail: "active, pending, repaid, defaulted, liquidated" },
+        { name: "Review Transaction", detail: "operations, balance changes, fee, sign-off" },
+        { name: "Toast", detail: "4 tones, on Sonner" },
+        { name: "CopyButton · TxHashLink", detail: "addresses and tx hashes" },
+      ],
+      more: "Also: offline and paused banners, stat cards, empty state, skeleton, tooltip.",
+    },
   },
   {
     id: "amana-design",
