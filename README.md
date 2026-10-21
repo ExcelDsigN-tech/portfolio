@@ -39,6 +39,7 @@ components/
   About.tsx         # Mission + identity card
   Skills.tsx        # Focus areas + toolbelt
   Work.tsx          # Selected work + DukaPay architecture diagram
+  DesignSystemPanel.tsx  # DukaPay Cobalt tokens + component list
   Contact.tsx       # Email + GitHub CTAs
   Footer.tsx
 lib/
